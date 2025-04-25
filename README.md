@@ -11,10 +11,10 @@
    O que será usado aqui neste estudo.
 </h1>
 
-1 - Ide eclipse sts
-2 - Java 17
-3 - banco de dados postgres-sql.
-4 - lombok.
-5 - Spring boot 3.4.5
-6 - Docker Compose
-7 - Keycloak
+1 - Ide eclipse sts.<br>
+2 - Java 17.<br>
+3 - banco de dados postgres-sql.<br>
+4 - lombok.<br>
+5 - Spring boot 3.4.5.<br>
+6 - Docker Compose.<br>
+7 - Keycloak.<br>
