@@ -22,4 +22,6 @@
 <h1 align="center">
    Modelo da arquiteura que iremos construir
 </h1>
-
+<p align="center">
+  <img src="https://github.com/EduardoNofre/spring-boot-bff-api-keycloak-docker/blob/main/desenhoArq.png"/>  
+</p>
