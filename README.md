@@ -25,3 +25,21 @@
 <p align="center">
   <img src="https://github.com/EduardoNofre/spring-boot-bff-api-keycloak-docker/blob/main/desenhoArq.png"/>  
 </p>
+
+<h1 align="center">
+   Alguns pontos relevantes sobre BFF.
+</h1>
+
+## O que é BFF.<br>
+  BFF (Backend for Frontend) é um padrão de arquitetura de sistemas onde você cria um backend específico para cada tipo de frontend (como web, mobile, smartwatch, etc.)<br>
+
+## Para que serve o BFF?
+  O objetivo principal do BFF é adaptar as respostas do backend para as necessidades específicas de cada frontend, melhorando performance, simplificando a lógica no cliente e permitindo maior autonomia entre times de desenvolvimento.<br>
+
+## Vantagens do BFF:
+   - Customização por frontend
+   - Desacoplamento entre frontend e backend
+   - Melhoria de performance (dados sob medida, menos requisições)
+   - Facilidade de manutenção e evolução
+
+
