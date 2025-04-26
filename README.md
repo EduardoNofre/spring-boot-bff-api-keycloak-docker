@@ -45,8 +45,8 @@
 
 ## Imagine o seguinte cenário.<br>
 Você tem um restaurante (que é seu sistema).<br>
-  Um cliente da mesa web quer uma refeição completa com entrada, prato principal e sobremesa.<br>
-  Um cliente da mesa mobile só quer um lanche rápido.<br>
+  Um cliente da mesa **web** quer uma refeição completa com entrada, prato principal e sobremesa.<br>
+  Um cliente da mesa **mobile** só quer um lanche rápido.<br>
   Se só existisse um garçom para todos, ele traria a mesma comida para todos — o que nem sempre faz sentido.<br>
 
 Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
