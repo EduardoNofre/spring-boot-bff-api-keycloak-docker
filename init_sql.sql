@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS noticia_politica (
 );
 
 CREATE TABLE IF NOT EXISTS noticia_economia (
-    idEco INT auto_increment primary key,
+    id_eco INT auto_increment primary key,
     tipo_noticias_eco VARCHAR(50) not null,
     tipo_noticias_desc_eco VARCHAR(50) not null,
     id_cad INT,
