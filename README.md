@@ -122,11 +122,11 @@ Keycloak é uma ferramenta que cuida de login, logout e segurança de acesso par
 Ele verifica quem você é, se você pode entrar, e o que você pode fazer dentro do sistema..<br>
 
 ## Como podemos utilizar o keycloak?
-Fazer login com usuário e senha
-Usar login social (Google, Facebook, etc)
-Criar perfis de acesso (admin, usuário, etc)
-Proteger **APIs** e **aplicativos web/mobile**
-Ter login único (SSO) entre vários sistemas
+Fazer login com usuário e senha<br>
+Usar login social (Google, Facebook, etc)<br>
+Criar perfis de acesso (admin, usuário, etc)<br>
+Proteger **APIs** e **aplicativos web/mobile**<br>
+Ter login único (SSO) entre vários sistemas<br>
 
 <h1 align="center">
    O que iremos API.
