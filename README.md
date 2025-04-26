@@ -154,7 +154,7 @@ Ter login único (SSO) entre vários sistemas<br>
   O desenvolvimento da APi sistemas.
 </h1>        
 
-Teremos os endpoints utilizando oseguintes verbos.<br>
+Teremos os endpoints utilizando os seguintes verbos.<br>
     **GET** - Para consultas.<br>
     **POST** - Inserção de dados.<br>
     **DELETE** - Deletar registro.<br>
