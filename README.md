@@ -135,6 +135,7 @@ Ter login único (SSO) entre vários sistemas<br>
 <h1 align="center">
    O que iremos desenvolver aqui para aprendizado.
 </h1>
+
     1 - Uma Api de **"noticias diaria"**.<br>
     2 - Dois BFF **BFF-mobile** e **BFF-Web**<br>
     3 - criar **script de banco** tabelas.<br>
@@ -149,7 +150,15 @@ Ter login único (SSO) entre vários sistemas<br>
         6.6 - Usuario sistema-BFF-mobile-swagger: Usuario com acesso a visualizar swagger e executar somente o mobile serviços.<br>
         6.7 - Usuario sistema-BFF-web-swagger: Usuario com acesso a visualizar swagger e executar somente o web web serviços.<br>
         
-        
+<h1 align="center">
+  O desenvolvimento da APi sistemas.
+</h1>        
+
+Teremos os endpoints utilizando oseguintes verbos.<br>
+    **GET** - Para consultas.<br>
+    **POST** - Inserção de dados.<br>
+    **DELETE** - Deletar registro.<br>
+    **PUT** - Atualizar dados.<br>
     
     
     
