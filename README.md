@@ -16,8 +16,9 @@
 3 - banco de dados postgres-sql.<br>
 4 - lombok.<br>
 5 - Spring boot 3.4.5.<br>
-6 - Docker Compose.<br>
-7 - Keycloak.<br>
+6 - Docker <br>
+7 - Docker Compose.<br>
+8 - Keycloak.<br>
 
 <h1 align="center">
    Modelo da arquiteura que iremos construir
