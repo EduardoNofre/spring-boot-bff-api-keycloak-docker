@@ -88,6 +88,10 @@ Aí vai rodar em outro servidor e… 💥 dá erro.<br>
 Com Docker, você coloca esse site dentro de um "container".<br>
 Agora, funciona igual em qualquer computador, servidor, ou nuvem.<br>
 
+<h1 align="center">
+   docker compose
+</h1>
+
 ## O que docker compose?
 Docker Compose é uma ferramenta que junta vários **containers Docker** e faz eles **trabalharem juntos**.<br>
 Agora temos uma frota de navio e uma infinidade **containers Docker** trabalhando juntos <br>
