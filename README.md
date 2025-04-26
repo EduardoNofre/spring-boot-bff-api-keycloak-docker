@@ -136,19 +136,19 @@ Ter login único (SSO) entre vários sistemas<br>
    O que iremos desenvolver aqui para aprendizado.
 </h1>
 
-    1 - Uma Api de **"noticias diaria"**.<br>
-    2 - Dois BFF **BFF-mobile** e **BFF-Web**<br>
-    3 - criar **script de banco** tabelas.<br>
-    4 - Gerar imagens dos BFF e da API com **docker** e subir para docker hub.<br>
-    5 - Executar o keycloack com docker-compose.<br>
-    6 - Criar no **keycloack** os usuarios sistema-BFF-mobile,usuarios sistema-BFF-web, sistema-API, usuario-admin, usuario-gerencial e usuario-padrão.<br>
-        6.1 - Usuario sistema-BFF-mobile: Usuario sistema que permite que ele acesse a api sistmas.<br>
-        6.2 - Usuario sistema-BFF-web:  Usuario sistema que permite que ele acesse a api sistmas.<br>
-        6.3 - Usuario usuario-admin: Usuario administrador acesso total a aplicação.<br>
-        6.4 - Usuario usuario-gerencial: Usuario gerencial acesso somente a area gerencial.<br>
-        6.5 - Usuario usuario-padrão: Usuario padrão acesso somente area de atuação.<br>
-        6.6 - Usuario sistema-BFF-mobile-swagger: Usuario com acesso a visualizar swagger e executar somente o mobile serviços.<br>
-        6.7 - Usuario sistema-BFF-web-swagger: Usuario com acesso a visualizar swagger e executar somente o web web serviços.<br>
+  1 - Uma Api de **"noticias diaria"**.<br>
+  2 - Dois BFF **BFF-mobile** e **BFF-Web**<br>
+  3 - criar **script de banco** tabelas.<br>
+  4 - Gerar imagens dos BFF e da API com **docker** e subir para docker hub.<br>
+  5 - Executar o keycloack com docker-compose.<br>
+  6 - Criar no **keycloack** os usuarios sistema-BFF-mobile,usuarios sistema-BFF-web, sistema-API, usuario-admin, usuario-gerencial e usuario-padrão.<br>
+      6.1 - Usuario sistema-BFF-mobile: Usuario sistema que permite que ele acesse a api sistmas.<br>
+      6.2 - Usuario sistema-BFF-web:  Usuario sistema que permite que ele acesse a api sistmas.<br>
+      6.3 - Usuario usuario-admin: Usuario administrador acesso total a aplicação.<br>
+      6.4 - Usuario usuario-gerencial: Usuario gerencial acesso somente a area gerencial.<br>
+      6.5 - Usuario usuario-padrão: Usuario padrão acesso somente area de atuação.<br>
+      6.6 - Usuario sistema-BFF-mobile-swagger: Usuario com acesso a visualizar swagger e executar somente o mobile serviços.<br>
+      6.7 - Usuario sistema-BFF-web-swagger: Usuario com acesso a visualizar swagger e executar somente o web web serviços.<br>
         
 <h1 align="center">
   O desenvolvimento da APi sistemas.
