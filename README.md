@@ -53,7 +53,7 @@ Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
   Um BFF para o **site web**, que traz tudo completo.<br>
   Um BFF para o **app mobile**, que traz só o necessário.<br>
 
-Por que isso é bom?
+## Por que isso é bom?
    - Cada cliente recebe só o que precisa.
    - Tudo fica mais rápido e organizado.
    - O time que cuida do app pode trabalhar separado do time que cuida do site.
