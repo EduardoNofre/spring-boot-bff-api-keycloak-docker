@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring.boot.bff.mobile.app</groupId>
-	<artifactId>spring-boot-api</artifactId>
+	<artifactId>spring-boot-api-mobile</artifactId>
 	<version>0.0.1</version>
 	<name>Spring-boot-bff-mobile</name>
-	<description>estudo api - que será chamada pelo bff</description>
+	<description>Spring-boot-bff-mobile</description>
 	<url/>
 	<licenses>
 		<license/>

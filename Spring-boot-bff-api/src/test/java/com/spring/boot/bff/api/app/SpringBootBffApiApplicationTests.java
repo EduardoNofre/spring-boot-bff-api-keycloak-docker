@@ -1,10 +1,10 @@
-package com.spring.boot.api.app;
+package com.spring.boot.bff.api.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootApiApplicationTests {
+class SpringBootBffApiApplicationTests {
 
 	@Test
 	void contextLoads() {

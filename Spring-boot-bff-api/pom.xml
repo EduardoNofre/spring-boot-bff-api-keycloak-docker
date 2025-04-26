@@ -8,11 +8,11 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.spring.boot.api.app</groupId>
-	<artifactId>spring-boot-api</artifactId>
+	<groupId>com.spring.boot.bff.api.app</groupId>
+	<artifactId>spring-boot-api-api</artifactId>
 	<version>0.0.1</version>
-	<name>Spring-boot-api</name>
-	<description>estudo api - que será chamada pelo bff</description>
+	<name>Spring-boot-bff-api</name>
+	<description>Spring-boot-bff-api</description>
 	<url/>
 	<licenses>
 		<license/>

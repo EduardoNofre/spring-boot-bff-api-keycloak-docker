@@ -1,13 +1,13 @@
-package com.spring.boot.api.app;
+package com.spring.boot.bff.api.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootApiApplication {
+public class SpringBootBffApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootApiApplication.class, args);
+		SpringApplication.run(SpringBootBffApiApplication.class, args);
 	}
 
 }
