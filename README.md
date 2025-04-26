@@ -62,7 +62,7 @@ Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
    Alguns pontos relevantes sobre API.
 </h1>
 
-## O que uma API?
+## O que é uma API?
 API significa Interface de Programação de Aplicações (em inglês, Application Programming Interface).<br>
 API é um meio de comunicação entre programas.<br>
 
@@ -76,7 +76,7 @@ A cozinha prepara e entrega.<br>
    dokcer.
 </h1>
 
-## O que dokcer?
+## O que é dokcer?
 Docker é como um container de navio, mas para programas.<br>
 É um navio, cada **container** pode ter coisas diferentes: <br>
 eletrônicos, comida, roupas.<br>
@@ -92,7 +92,7 @@ Agora, funciona igual em qualquer computador, servidor, ou nuvem.<br>
    docker compose
 </h1>
 
-## O que docker compose?
+## O que é docker compose?
 Docker Compose é uma ferramenta que junta vários **containers Docker** e faz eles **trabalharem juntos**.<br>
 Agora temos uma frota de navio e uma infinidade **containers Docker** trabalhando juntos <br>
 
@@ -113,7 +113,7 @@ Que volumes usar (armazenamento)
 ## Resumo!
 Docker Compose é como um **maestro** que comanda vários **containers Docker** ao mesmo tempo
 
-## O que Keycloak?
+## O que é Keycloak?
 
 <h1 align="center">
    O que iremos API.
