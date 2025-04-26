@@ -1,47 +1,55 @@
-create schema if not exists spring_boot_banco;
+CREATE SCHEMA IF NOT EXISTS spring_boot_banco;
 
-create table if not exists categoria_noticias (
+CREATE TABLE IF NOT EXISTS categoria_noticias (
     idCad INT auto_increment primary key,
     tipo_noticias VARCHAR(50) not null,
-    tipo_noticias_desc VARCHAR(50) not null
+    tipo_noticias_desc VARCHAR(50) not null,
+    dataHrInclusao DATETIME not null,
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP
 
 );
 
-create table if not exists noticia_principal (
+CREATE TABLE IF NOT EXISTS noticia_principal (
     idPrinc INT auto_increment primary key,
-    noticias VARCHAR(50) not null,
-    desc_noticias VARCHAR(50) not null,
-	imagem_noticia VARCHAR(50) not null,
+    tipo_noticias VARCHAR(50) not null,
+    tipo_noticias_desc VARCHAR(50) not null,
     idCad INT,
-    foreign key (idCad) references categoria_noticias(idCad)
+    foreign key (idCad) references categoria_noticias(idCad),
+    dataHrInclusao DATETIME not null,
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP
 
 );
 
-create table if not exists noticia_esportes (
+CREATE TABLE IF NOT EXISTS noticia_esportes (
     idEsp INT auto_increment primary key,
-    noticias VARCHAR(50) not null,
-    desc_noticias VARCHAR(50) not null,
-	imagem_noticia VARCHAR(50) not null,
+    tipo_noticias VARCHAR(50) not null,
+    tipo_noticias_desc VARCHAR(50) not null,
     idCad INT,
-    foreign key (idCad) references categoria_noticias(idCad)
+    foreign key (idCad) references categoria_noticias(idCad),
+    dataHrInclusao DATETIME not null,
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP
 
 );
 
-create table if not exists noticia_politica (
+CREATE TABLE IF NOT EXISTS noticia_politica (
     idPol INT auto_increment primary key,
-    noticias VARCHAR(50) not null,
-    desc_noticias VARCHAR(50) not null,
-	imagem_noticia VARCHAR(50) not null,
+    tipo_noticias VARCHAR(50) not null,
+    tipo_noticias_desc VARCHAR(50) not null,
     idCad INT,
-    FOREIGN KEY (idCad) REFERENCES categoria_noticias(idCad)
+    foreign key (idCad) references categoria_noticias(idCad),
+    dataHrInclusao DATETIME not null,
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP
 
 );
 
-create table if not exists noticia_economia (
+CREATE TABLE IF NOT EXISTS noticia_economia (
     idEco INT auto_increment primary key,
-    noticias VARCHAR(50) not null,
-    desc_noticias VARCHAR(50) not null,
-	imagem_noticia VARCHAR(50) not null,
+    tipo_noticias VARCHAR(50) not null,
+    tipo_noticias_desc VARCHAR(50) not null,
     idCad INT,
-    FOREIGN KEY (idCad) REFERENCES categoria_noticias(idCad)
+    foreign key (idCad) references categoria_noticias(idCad),
+    dataHrInclusao DATETIME not null,
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP
 );
+
+
