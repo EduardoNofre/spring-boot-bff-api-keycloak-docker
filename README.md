@@ -133,5 +133,8 @@ Proteger **APIs** e **aplicativos web/mobile**<br>
 Ter login único (SSO) entre vários sistemas<br>
 
 <h1 align="center">
-   O que iremos API.
+   O que iremos desenvolver aqui para aprendizado.
 </h1>
+    1 - Uma Api de "noticias diaria".
+    2 - Dois BFF BFF-mobile e BFF-Web
+    
