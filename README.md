@@ -115,6 +115,18 @@ Que volumes usar (armazenamento)
 Docker Compose é como um **maestro** que comanda vários **containers Docker** ao mesmo tempo
 
 ## O que é Keycloak?
+Keycloak é uma ferramenta que cuida de login, logout e segurança de acesso para sistemas e aplicativos.<br>
+
+## uma visão simples do Keycloak.
+É como um porteiro digital..<br>
+Ele verifica quem você é, se você pode entrar, e o que você pode fazer dentro do sistema..<br>
+
+## Como podemos utilizar o keycloak?
+Fazer login com usuário e senha
+Usar login social (Google, Facebook, etc)
+Criar perfis de acesso (admin, usuário, etc)
+Proteger **APIs** e **aplicativos web/mobile**
+Ter login único (SSO) entre vários sistemas
 
 <h1 align="center">
    O que iremos API.
