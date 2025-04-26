@@ -138,9 +138,9 @@ Ter login único (SSO) entre vários sistemas<br>
     1 - Uma Api de **"noticias diaria"**.<br>
     2 - Dois BFF **BFF-mobile** e **BFF-Web**<br>
     3 - criar **script de banco** tabelas.<br>
-    4 - Gerar imagens dos BFF e da API com **docker** e subir para docker hub.
-    5 - Executar o keycloack com docker-compose.
-    6 - Criar no **keycloack** os usuarios sistema-BFF, sistema-API, usuario-admin, usuario-gerencial e usuario-padrão.
+    4 - Gerar imagens dos BFF e da API com **docker** e subir para docker hub.<br>
+    5 - Executar o keycloack com docker-compose.<br>
+    6 - Criar no **keycloack** os usuarios sistema-BFF, sistema-API, usuario-admin, usuario-gerencial e usuario-padrão.<br>
     
     
     
