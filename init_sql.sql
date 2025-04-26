@@ -6,39 +6,42 @@ CREATE TABLE IF NOT EXISTS categoria_noticias (
     tipo_noticias_desc_cad VARCHAR(50) not null,
     data_hr_inclusao DATETIME not null,
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP
-
 );
 
 CREATE TABLE IF NOT EXISTS noticia_principal (
-    idPrinc INT auto_increment primary key,
+    id_princ INT auto_increment primary key,
     tipo_noticias_princ VARCHAR(50) not null,
     tipo_noticias_desc_princ VARCHAR(50) not null,
     id_cad INT,
     foreign key (id_cad) references categoria_noticias(id_cad),
     data_hr_inclusao DATETIME not null,
-	criado_em TIMESTAMP default CURRENT_TIMESTAMP
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
+	imagem_noticia_princ VARCHAR(50) not null
 
 );
 
 CREATE TABLE IF NOT EXISTS noticia_esportes (
-    idEsp INT auto_increment primary key,
+    id_esp INT auto_increment primary key,
     tipo_noticias_esp VARCHAR(50) not null,
     tipo_noticias_desc_esp VARCHAR(50) not null,
     id_cad INT,
     foreign key (id_cad) references categoria_noticias(id_cad),
     data_hr_inclusao DATETIME not null,
-	criado_em TIMESTAMP default CURRENT_TIMESTAMP
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
+	imagem_noticia_esp VARCHAR(50) not null
 
 );
 
 CREATE TABLE IF NOT EXISTS noticia_politica (
-    idPol INT auto_increment primary key,
+    id_pol INT auto_increment primary key,
     tipo_noticias_pol VARCHAR(50) not null,
     tipo_noticias_desc_pol VARCHAR(50) not null,
     id_cad INT,
     foreign key (id_cad) references categoria_noticias(id_cad),
     data_hr_inclusao DATETIME not null,
-	criado_em TIMESTAMP default CURRENT_TIMESTAMP
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
+	imagem_noticia_pol VARCHAR(50) not null
+	
 
 );
 
@@ -49,6 +52,7 @@ CREATE TABLE IF NOT EXISTS noticia_economia (
     id_cad INT,
     foreign key (id_cad) references categoria_noticias(id_cad),
     data_hr_inclusao DATETIME not null,
-	criado_em TIMESTAMP default CURRENT_TIMESTAMP
+	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
+	imagem_noticia_eco VARCHAR(50) not null
 );
 
