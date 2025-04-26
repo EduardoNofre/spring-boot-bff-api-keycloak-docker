@@ -63,8 +63,8 @@ Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
 </h1>
 
 ## O que uma API?
-API significa Interface de Programação de Aplicações (em inglês, Application Programming Interface).
-API é um meio de comunicação entre programas.
+API significa Interface de Programação de Aplicações (em inglês, Application Programming Interface).<br>
+API é um meio de comunicação entre programas.<br>
 
 ## Veja por esse lado.
 Pensa nela como um cardápio de restaurante:<br>
