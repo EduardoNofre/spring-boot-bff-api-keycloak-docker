@@ -49,7 +49,7 @@ Você tem um restaurante (que é seu sistema).<br>
   Se só existisse um garçom para todos, ele traria a mesma comida para todos — o que nem sempre faz sentido.<br>
 
 Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
-  Um BFF para o site web, que traz tudo completo.<br>
-  Um BFF para o app mobile, que traz só o necessário.<br>
+  Um BFF para o **site web**, que traz tudo completo.<br>
+  Um BFF para o **app mobile**, que traz só o necessário.<br>
 
   
