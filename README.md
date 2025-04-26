@@ -111,7 +111,7 @@ Quais portas abrir
 Que volumes usar (armazenamento)
 
 ## Resumo!
-Docker Compose é como um **maestro** que comanda vários containers Docker ao mesmo tempo
+Docker Compose é como um **maestro** que comanda vários **containers Docker** ao mesmo tempo
 
 ## O que Keycloak?
 
