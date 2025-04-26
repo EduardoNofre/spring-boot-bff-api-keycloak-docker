@@ -41,6 +41,7 @@
    - Desacoplamento entre frontend e backend
    - Melhoria de performance (dados sob medida, menos requisições)
    - Facilidade de manutenção e evolução
+   - segurança sua api não fica exposta.
 
 ## Imagine o seguinte cenário.<br>
 Você tem um restaurante (que é seu sistema).<br>
