@@ -71,3 +71,46 @@ Pensa nela como um cardápio de restaurante:<br>
 O cardápio mostra o que você pode pedir (mas você não vê como a comida é feita).<br>
 Você escolhe o que quer e faz o pedido.<br>
 A cozinha prepara e entrega.<br>
+
+<h1 align="center">
+   dokcer.
+</h1>
+
+## O que dokcer?
+Docker é como um container de navio, mas para programas.<br>
+É um navio, cada **container** pode ter coisas diferentes: <br>
+eletrônicos, comida, roupas.<br>
+No Docker, cada "container" carrega um programa completo com tudo o que ele precisa para funcionar: código, configurações, bibliotecas...<br>
+
+## O docker venho para resolver o famoso "na minha maquina funciona".<br>
+Você tem um site que funciona bem no seu computador.<br>
+Aí vai rodar em outro servidor e… 💥 dá erro.<br>
+Com Docker, você coloca esse site dentro de um "container".<br>
+Agora, funciona igual em qualquer computador, servidor, ou nuvem.<br>
+
+## O que docker compose?
+Docker Compose é uma ferramenta que junta vários **containers Docker** e faz eles **trabalharem juntos**.<br>
+Agora temos uma frota de navio e uma infinidade **containers Docker** trabalhando juntos <br>
+
+## Um exemplo mais pratico.
+Imagina que você tem um site que precisa de:
+Um servidor web (por exemplo, Nginx)
+Um banco de dados (por exemplo, MySQL)
+Um serviço de login
+Cada um roda em um **container Docker** separado.
+Em vez de ligar tudo na mão, um por um...
+👉 Você usa o **Docker Compose** para ligar todos de uma vez só com um arquivo de configuração.
+Esse arquivo se chama **docker-compose.yml** e diz:
+Quais containers usar
+Como eles se conectam
+Quais portas abrir
+Que volumes usar (armazenamento)
+
+## Resumo!
+Docker Compose é como um maestro que comanda vários containers Docker ao mesmo tempo
+
+## O que Keycloak?
+
+<h1 align="center">
+   O que iremos API.
+</h1>
