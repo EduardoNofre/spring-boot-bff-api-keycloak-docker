@@ -44,5 +44,5 @@ public class CategoriaNoticias {
 	private List<NoticiaPolitica> noticiaPolitica;
 	
 	@OneToMany(mappedBy = "idCadPrincipalFk", cascade = CascadeType.ALL)
-	private List<NoticiaPrincipal> noticiaPrincipalDTO;
+	private List<NoticiaPrincipal> noticiaPrincipal;
 }
