@@ -58,6 +58,10 @@ Com BFF, você cria um **“garçom”** especial para cada tipo de cliente:<br>
    - Tudo fica mais rápido e organizado.
    - O time que cuida do app pode trabalhar separado do time que cuida do site.
 
+<h1 align="center">
+   Alguns pontos relevantes sobre API.
+</h1>
+
 ## O que uma API?
 API significa Interface de Programação de Aplicações (em inglês, Application Programming Interface).
 API é um meio de comunicação entre programas.
