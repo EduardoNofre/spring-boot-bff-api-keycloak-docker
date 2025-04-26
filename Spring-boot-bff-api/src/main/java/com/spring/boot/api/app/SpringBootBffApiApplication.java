@@ -1,4 +1,4 @@
-package com.spring.boot.bff.api.app;
+package com.spring.boot.api.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
