@@ -35,3 +35,4 @@ CREATE TABLE IF NOT EXISTS outras_noticias (
 	PRIMARY KEY (id_outras)
 
 );
+
