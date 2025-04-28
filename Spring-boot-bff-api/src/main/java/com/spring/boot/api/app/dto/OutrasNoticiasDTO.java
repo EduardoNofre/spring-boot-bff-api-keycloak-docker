@@ -8,25 +8,25 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class NoticiaPrincipalDTO {
+public class OutrasNoticiasDTO {
 
 	@Schema(name = "id", description = "numero unico de identificação", example = "123", type = "Integer")
 	private Integer id;
 
-	@Schema(name = "tipoNoticiasPrinc", description = "tipo noticia", example = "123", type = "String")
-	private String tipoNoticiasPrinc;
+	@Schema(name = "tipoNoticiasOutras", description = "tipo noticia", example = "123", type = "String")
+	private String tipoNoticiasOutras;
 
-	@Schema(name = "tipoNoticiasDescPrinc", description = "tipo noticia descrição", example = "Alines pedem asilo na terra!", type = "String")
-	private String tipoNoticiasDescPrinc;
+	@Schema(name = "tipoNoticiasDescOutras", description = "tipo noticia descrição", example = "Alines pedem asilo na terra!", type = "String")
+	private String tipoNoticiasDescOutras;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime dataHrInclusao;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime criadoEm;
-
-	@Schema(name = "imagemNoticiaPrinc", description = "repositorio da imagem principal", example = "/mnt/imag/sportes/tetse.png", type = "String")
-	private String imagemNoticiaPrinc;
+	
+	@Schema(name = "imagemNoticiaOutras", description = "repositorio da imagem outras", example = "/mnt/imag/sportes/tetse.png", type = "String")
+	private String imagemNoticiaOutras;
 	
 	@Schema(name = "categoriaId", description = "fk categoria Id", example = "123", type = "String")
 	private Integer categoriaId;

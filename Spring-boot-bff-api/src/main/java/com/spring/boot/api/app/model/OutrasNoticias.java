@@ -12,32 +12,27 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-
 @Data
 @Entity
-@Table(name = "noticia_economia")
-public class NoticiaEconomia {
+@Table(name = "outras_noticias")
+public class OutrasNoticias {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id_eco;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-	@Column(name = "tipo_noticias_eco")
-	private String noticiasEco;
+	@Column(name = "tipo_noticias_outras ")
+	private String tipoNoticiasOutras;
 
-	@Column(name = "tipo_noticias_desc_eco")
-	private String desc_noticiasEco;
+	@Column(name = "tipo_noticias_desc_outras ")
+	private String tipoNoticiasDescOutras;
 
-	@ManyToOne
-	@JoinColumn(name = "CategoriaNoticias_id_Cad")
-	private CategoriaNoticias idCadEconomiaFk;
-	
 	@Column(name = "data_hr_inclusao")
 	private LocalDateTime dataHrInclusao;
 
 	@Column(name = "criado_em")
 	private LocalDateTime criadoEm;
-	
-	@Column(name = "imagem_noticia_eco")
-	private String imagemNoticiaEco;
+
+	@Column(name = "categoria_id")
+	private Integer categoriaId;
 }

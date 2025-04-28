@@ -1,4 +1,4 @@
-package com.spring.boot.bff.api.app;
+package com.spring.boot.api.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
