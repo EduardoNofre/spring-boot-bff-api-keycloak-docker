@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.api.app.dto.CategoriaDTO;
+import com.spring.boot.api.app.dto.NoticiaPrincipalDTO;
 import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.service.CategoriaService;
+import com.spring.boot.api.app.service.NoticiaPrincipalService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -28,15 +28,15 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@Tag(name = "CategoriaController", description = "Recurso categoria controller Api")
-public class CategoriaController {
+@Tag(name = "NoticiaPrincipalController", description = "Recurso noticia principal Api Service")
+public class NoticiaPrincipalController {
 
 	@Autowired
-	private CategoriaService categoriaService;
+	private NoticiaPrincipalService noticiaPrincipalService;
 
-	@Operation(summary = "Retorna uma categoria", description = "Retorna uma categoria")
+	@Operation(summary = "Retorna uma noticiaPrincipal", description = "Retorna uma noticia Principal")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CategoriaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = NoticiaPrincipalDTO.class))) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -44,17 +44,17 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/noticias")
-	public ResponseEntity<CategoriaDTO> listaNoticias(
+	@GetMapping("/noticias-principal")
+	public ResponseEntity<NoticiaPrincipalDTO> listaNoticiaPrincipal(
 			@Parameter(name = "id", description = "Número identificador da noticia", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
 
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarId(id));
+		return ResponseEntity.status(HttpStatus.OK).body(noticiaPrincipalService.buscarId(id));
 	}
 
 	@Operation(summary = "Listar relacionas ao indice escolhido", description = "Listar relacionas ao indice escolhido")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CategoriaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = NoticiaPrincipalDTO.class))) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -62,14 +62,14 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/noticias-relacionadas")
-	public ResponseEntity<List<CategoriaDTO>> listaNoticiasRelacionadas() throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listaNoticiasRelacionadas());
+	@GetMapping("/noticias-principal-relacionadas")
+	public ResponseEntity<List<NoticiaPrincipalDTO>> listaNoticiaPrincipalRelacionadas() throws HandleException {
+		return ResponseEntity.status(HttpStatus.OK).body(noticiaPrincipalService.listaNoticiaPrincipalRelacionadas());
 	}
 
-	@Operation(summary = "Inserir novas categoria", description = "Inserir novas categoria")
+	@Operation(summary = "Inserir novas noticiaPrincipal", description = "Inserir novas noticiaPrincipal")
 	@ApiResponses(value = { @ApiResponse(responseCode = "201", description = "Criado", content = {
-			@Content(mediaType = "application/json", schema = @Schema(implementation = CategoriaDTO.class)) }),
+			@Content(mediaType = "application/json", schema = @Schema(implementation = NoticiaPrincipalDTO.class)) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -77,40 +77,42 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PostMapping("/criar-categoria")
-	public ResponseEntity<CategoriaDTO> criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.criarCategoria(categoriaDTO));
+	@PostMapping("/criar-noticia-principal")
+	public ResponseEntity<NoticiaPrincipalDTO> criarNoticiaPrincipal(@Valid @RequestBody NoticiaPrincipalDTO noticiaPrincipalDTO) {
+		return ResponseEntity.status(HttpStatus.OK).body(noticiaPrincipalService.criarNoticiaPrincipal(noticiaPrincipalDTO));
 	}
 	
 
 	@Operation(summary = "Atualizar noticias existentes", description = "Atualizar noticias existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CategoriaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = NoticiaPrincipalDTO.class))) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PutMapping("/atualizar")
-	public ResponseEntity<CategoriaDTO> atualizarNoticias(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.atualizarNoticias(categoriaDTO));
+	@PutMapping("/atualizar-noticia-principa")
+	public ResponseEntity<NoticiaPrincipalDTO> atualizarNoticiaPrincipal(@Valid @RequestBody NoticiaPrincipalDTO noticiaPrincipalDTO) throws HandleException {
+		return ResponseEntity.status(HttpStatus.OK).body(noticiaPrincipalService.atualizarNoticiaPrincipal(noticiaPrincipalDTO));
 	}
 
 	@Operation(summary = "Excluir noticias existentes", description = "Excluir noticias existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CategoriaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = NoticiaPrincipalDTO.class))) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@DeleteMapping("excluir")
-	public ResponseEntity<Void> excluirNoticias(@Valid @RequestBody CategoriaDTO categoriaDTO) {
+	@DeleteMapping("excluir-noticia-principa")
+	public ResponseEntity<Void> excluirNoticiaPrincipal(@Valid @RequestBody NoticiaPrincipalDTO noticiaPrincipalDTO) {
 		
-		categoriaService.excluirNoticias(categoriaDTO);
+		noticiaPrincipalService.excluirNoticiaPrincipal(noticiaPrincipalDTO);
 		
 		return ResponseEntity.ok().build();
 	}
+
+	
 }

@@ -28,7 +28,7 @@ public class CategoriaService {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public CategoriaDTO listaNoticias(Integer id) throws HandleException {
+	public CategoriaDTO buscarId(Integer id) throws HandleException {
 
 		Optional<Categoria> categoriaNoticias = categoriaRepository.findById(id);
 
@@ -55,24 +55,37 @@ public class CategoriaService {
 		}.getType());
 	}
 
-	
-	@Transactional
+	@Transactional(rollbackOn = Exception.class)
 	public CategoriaDTO criarCategoria(CategoriaDTO categoriaDTO) {
-		
+
 		Categoria entity = modelMapper.map(categoriaDTO, new TypeToken<Categoria>() {
 		}.getType());
 
-		
 		return modelMapper.map(categoriaRepository.save(entity), new TypeToken<CategoriaDTO>() {
 		}.getType());
 	}
 
+	@Transactional(rollbackOn = Exception.class)
+	public CategoriaDTO atualizarNoticias(CategoriaDTO categoriaDTO) throws HandleException {
 
-	public void atualizarNoticias() {
+		if(categoriaRepository.findById(categoriaDTO.getId()).isPresent()) {
 
+			Categoria entity = modelMapper.map(categoriaDTO, new TypeToken<Categoria>() {}.getType());
+
+			return modelMapper.map(categoriaRepository.save(entity), new TypeToken<CategoriaDTO>() {}.getType());
+		}
+
+		throw new HandleException("A noticia não pode ser atualizada", HttpStatus.CONFLICT);
 	}
 
-	public void excluirNoticias() {
+	@Transactional(rollbackOn = Exception.class)
+	public void excluirNoticias(CategoriaDTO categoriaDTO) {
 
+		if(categoriaRepository.findById(categoriaDTO.getId()).isPresent()) {
+
+			Categoria entity = modelMapper.map(categoriaDTO, new TypeToken<Categoria>() {}.getType());
+			
+			categoriaRepository.delete(entity);
+		}
 	}
 }
