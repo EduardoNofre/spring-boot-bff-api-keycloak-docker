@@ -1,23 +1,26 @@
+CREATE SCHEMA IF NOT EXISTS spring_boot_banco;
+
+
 CREATE TABLE IF NOT EXISTS categoria(
-    id INT AUTO_INCREMENT,
-    tipo_noticias_cad VARCHAR(50) not null,
-    tipo_noticias_desc_cad VARCHAR(50) not null,
-    data_hr_inclusao DATETIME not null,
+    idCategoria INT AUTO_INCREMENT,
+   	categoria VARCHAR(50) not null,
+    categoria_desc VARCHAR(50) not null,
+    data_hr_alteracao DATETIME not null,
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
-	PRIMARY KEY (id)
+	PRIMARY KEY (idCategoria)
 );
 
-CREATE TABLE IF NOT EXISTS noticia_principal (
-    id INT AUTO_INCREMENT,
-    tipo_noticias_princ VARCHAR(50) not null,
-    tipo_noticias_desc_princ VARCHAR(50) not null,
+CREATE TABLE IF NOT EXISTS noticia(
+    idNoticia INT AUTO_INCREMENT,
+    noticias VARCHAR(50) not null,
+    noticias_desc VARCHAR(50) not null,
     categoria_id INT,
-    data_hr_inclusao DATETIME not null,
+    principal boolean,
+    data_hr_alteracao DATETIME not null,
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
-	imagem_noticia_princ VARCHAR(50) not null,
-	PRIMARY KEY (id),
-	CONSTRAINT fk_categoria_01 FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+	imagem_noticia VARCHAR(50) not null,
+	PRIMARY KEY (idNoticia),
+	CONSTRAINT fk_categoria_01 FOREIGN KEY (categoria_id) REFERENCES categoria(idCategoria)
     ON DELETE SET NULL
     ON UPDATE CASCADE
-
 );
