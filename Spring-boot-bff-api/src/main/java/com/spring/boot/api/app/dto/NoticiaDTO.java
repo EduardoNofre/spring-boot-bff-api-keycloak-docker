@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class NoticiaPrincipalDTO {
+public class NoticiaDTO {
 
 	@Schema(name = "id", description = "numero unico de identificação", example = "123", type = "Integer")
 	private Integer id;

@@ -17,16 +17,16 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer idCategoria;
 
-	@Column(name = "tipo_noticias_cad ")
-	private String tipoNoticiasCad;
+	@Column(name = "categoria ")
+	private String categoria;
 
-	@Column(name = "tipo_noticias_desc_cad ")
-	private String tipoNoticiasDescCad;
+	@Column(name = "categoria_desc ")
+	private String categoriaDesc;
 
-	@Column(name = "data_hr_inclusao")
-	private LocalDateTime dataHrInclusao;
+	@Column(name = "data_hr_alteracao")
+	private LocalDateTime dataHrAlteracao;
 
 	@Column(name = "criado_em")
 	private LocalDateTime criadoEm;
