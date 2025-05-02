@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS noticia(
 	imagem_noticia VARCHAR(50) not null,
 	categoria_id INT,
 	importancia_id INT,
+	usuarioAcao VARCHAR(50) not null,
 	PRIMARY KEY (id),
 	CONSTRAINT fk_categoria_01 FOREIGN KEY (categoria_id) REFERENCES categoria(id),
 	CONSTRAINT fk_importancia_01 FOREIGN KEY (importancia_id) REFERENCES importancia(id)
