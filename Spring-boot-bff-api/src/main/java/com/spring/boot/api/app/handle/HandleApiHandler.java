@@ -1,6 +1,7 @@
 package com.spring.boot.api.app.handle;
 
 import java.io.Serializable;
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -94,11 +95,11 @@ public class HandleApiHandler extends ResponseEntityExceptionHandler implements 
 	 * @param e
 	 * @return
 	 */
-//	@ExceptionHandler(AccessDeniedException.class)
-//	@ResponseStatus(code=HttpStatus.UNAUTHORIZED)
-//	public ResponseEntity<ErrorResponse> handle(AccessDeniedException e){
-//		return montaMsg(e.getMessage(), HttpStatus.UNAUTHORIZED); 
-//	}
+	@ExceptionHandler(AccessDeniedException.class)
+	@ResponseStatus(code=HttpStatus.UNAUTHORIZED)
+	public ResponseEntity<ErrorResponse> handle(AccessDeniedException e){
+		return montaMsg(e.getMessage(), HttpStatus.UNAUTHORIZED); 
+	}
 	
 	private ResponseEntity<ErrorResponse> montaMsg(String msg,HttpStatus status){
 		return new ResponseEntity<>(new ErrorResponse(msg, status),	HandleApiHandler.getHeaderJson(), status);

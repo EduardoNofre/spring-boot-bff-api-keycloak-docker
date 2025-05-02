@@ -13,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 import com.spring.boot.api.app.dto.NoticiaDTO;
 import com.spring.boot.api.app.handle.HandleException;
 import com.spring.boot.api.app.model.Noticia;
+import com.spring.boot.api.app.repository.CategoriaRepository;
 import com.spring.boot.api.app.repository.NoticiaRepository;
 
 import jakarta.transaction.Transactional;
@@ -21,69 +22,98 @@ import jakarta.transaction.Transactional;
 public class NoticiaService {
 
 	@Autowired
-	private NoticiaRepository noticiaPrincipalRepositoryRepository;
+	private NoticiaRepository noticiaRepositoryRepository;
+
+	@Autowired
+	private CategoriaRepository CategoriaRepository;
 
 	@Autowired
 	private ModelMapper modelMapper;
 
 	public NoticiaDTO buscarId(Integer id) throws HandleException {
 
-		Optional<Noticia> noticiaPrincipalRepositoryNoticia = noticiaPrincipalRepositoryRepository.findById(id);
+		Optional<Noticia> noticiaRepositoryNoticia = noticiaRepositoryRepository.findById(id);
 
-		if (noticiaPrincipalRepositoryNoticia.isEmpty()) {
-			throw new HandleException("NENHUMA NOTICIA PRINCIPAL ECONTRADA", HttpStatus.NO_CONTENT);
+		if (noticiaRepositoryNoticia.isEmpty()) {
+			throw new HandleException("NENHUMA NOTICIA ENCONTRADA", HttpStatus.NO_CONTENT);
 
 		}
 
-		return modelMapper.map(noticiaPrincipalRepositoryNoticia.get(), new TypeToken<NoticiaDTO>() {
+		return modelMapper.map(noticiaRepositoryNoticia.get(), new TypeToken<NoticiaDTO>() {
 		}.getType());
 
 	}
 
 	public List<NoticiaDTO> listaNoticia() throws HandleException {
 
-		List<Noticia> noticiaPrincipalRepositoryNoticia = noticiaPrincipalRepositoryRepository.findAll();
+		List<Noticia> noticiaRepositoryNoticia = noticiaRepositoryRepository.findAll();
 
-		if (CollectionUtils.isEmpty(noticiaPrincipalRepositoryNoticia)) {
+		if (CollectionUtils.isEmpty(noticiaRepositoryNoticia)) {
 
-			throw new HandleException("NENHUMA NOTICIA PRINCIPAL ECONTRADA", HttpStatus.NO_CONTENT);
+			throw new HandleException("NENHUMA NOTICIA ENCONTRADA", HttpStatus.NO_CONTENT);
 		}
 
-		return modelMapper.map(noticiaPrincipalRepositoryNoticia, new TypeToken<List<NoticiaDTO>>() {
+		return modelMapper.map(noticiaRepositoryNoticia, new TypeToken<List<NoticiaDTO>>() {
 		}.getType());
 	}
 
 	@Transactional(rollbackOn = Exception.class)
-	public NoticiaDTO criarNoticia(NoticiaDTO noticiaPrincipalRepositoryDTO) {
+	public NoticiaDTO criarNoticia(NoticiaDTO noticiaRepositoryDTO) {
 
-		Noticia entity = modelMapper.map(noticiaPrincipalRepositoryDTO, new TypeToken<Noticia>() {
+		Noticia entity = modelMapper.map(noticiaRepositoryDTO, new TypeToken<Noticia>() {
 		}.getType());
 
-		return modelMapper.map(noticiaPrincipalRepositoryRepository.save(entity), new TypeToken<NoticiaDTO>() {
+		return modelMapper.map(noticiaRepositoryRepository.save(entity), new TypeToken<NoticiaDTO>() {
 		}.getType());
 	}
 
 	@Transactional(rollbackOn = Exception.class)
-	public NoticiaDTO atualizarNoticia(NoticiaDTO noticiaPrincipalRepositoryDTO) throws HandleException {
+	public NoticiaDTO atualizarNoticia(NoticiaDTO noticiaRepositoryDTO) throws HandleException {
 
-		if(noticiaPrincipalRepositoryRepository.findById(noticiaPrincipalRepositoryDTO.getId()).isPresent()) {
+		if(noticiaRepositoryRepository.findById(noticiaRepositoryDTO.getId()).isPresent()) {
 
-			Noticia entity = modelMapper.map(noticiaPrincipalRepositoryDTO, new TypeToken<Noticia>() {}.getType());
+			Noticia entity = modelMapper.map(noticiaRepositoryDTO, new TypeToken<Noticia>() {}.getType());
 
-			return modelMapper.map(noticiaPrincipalRepositoryRepository.save(entity), new TypeToken<NoticiaDTO>() {}.getType());
+			return modelMapper.map(noticiaRepositoryRepository.save(entity), new TypeToken<NoticiaDTO>() {}.getType());
 		}
 
-		throw new HandleException("A NOTICIA PRINCIPAL NÃO PODE SER ATUALIZADA", HttpStatus.CONFLICT);
+		throw new HandleException("A NOTICIA NÃO PODE SER ATUALIZADA", HttpStatus.CONFLICT);
 	}
 
 	@Transactional(rollbackOn = Exception.class)
-	public void excluirNoticia(NoticiaDTO noticiaPrincipalRepositoryDTO) {
+	public void excluirNoticia(NoticiaDTO noticiaRepositoryDTO) {
 
-		if(noticiaPrincipalRepositoryRepository.findById(noticiaPrincipalRepositoryDTO.getId()).isPresent()) {
+		if(noticiaRepositoryRepository.findById(noticiaRepositoryDTO.getId()).isPresent()) {
 
-			Noticia entity = modelMapper.map(noticiaPrincipalRepositoryDTO, new TypeToken<Noticia>() {}.getType());
-			
-			noticiaPrincipalRepositoryRepository.delete(entity);
+			Noticia entity = modelMapper.map(noticiaRepositoryDTO, new TypeToken<Noticia>() {}.getType());
+
+			noticiaRepositoryRepository.delete(entity);
+		}
+	}
+
+	public List<NoticiaDTO> listaNoticiaCategoria(NoticiaDTO noticiaDTO) throws HandleException {
+
+		List<Noticia> noticias = noticiaRepositoryRepository.findByCategoriaId(noticiaDTO.getCategoriaId());
+
+		if (CollectionUtils.isEmpty(noticias)) {
+
+			throw new HandleException("NENHUMA NOTICIA ENCONTRADA", HttpStatus.NO_CONTENT);
+		}		
+		return modelMapper.map(noticias, new TypeToken<List<NoticiaDTO>>() {}.getType());	
+	}
+
+
+	public NoticiaDTO inserirNoticiaCategoria(NoticiaDTO noticiaDTO) throws HandleException {
+
+		if(CategoriaRepository.findById(noticiaDTO.getCategoriaId()).isPresent()) {
+
+			Noticia entity = modelMapper.map(noticiaDTO, new TypeToken<Noticia>() {}.getType());
+
+			return modelMapper.map(noticiaRepositoryRepository.save(entity), new TypeToken<NoticiaDTO>() {}.getType());
+
+		}else {
+
+			throw new HandleException("CATEGORIA NÃO ENCONTRADA", HttpStatus.CONFLICT);
 		}
 	}
 }

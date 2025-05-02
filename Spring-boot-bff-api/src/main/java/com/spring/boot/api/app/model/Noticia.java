@@ -34,8 +34,8 @@ public class Noticia {
 	@Column(name = "imagem_noticia")
 	private String imagemNoticiaPrinc;
 	
-	@Column(name = "principal")
-	private boolean principal;
+	@Column(name = "importancia_id")
+	private boolean importanciaId;
 	
 	@Column(name = "categoria_id")
 	private Integer categoriaId;
