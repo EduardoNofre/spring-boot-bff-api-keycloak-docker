@@ -46,7 +46,7 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/categoria")
+	@GetMapping("/id")
 	public ResponseEntity<CategoriaDTO> listaNoticias(
 			@Parameter(name = "id", description = "Número identificador da categoria", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
@@ -64,9 +64,9 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/lista-categoria")
+	@GetMapping("/listar")
 	public ResponseEntity<List<CategoriaDTO>> listaNoticiasRelacionadas() throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listaNoticiasRelacionadas());
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listaCategoria());
 	}
 
 	@Operation(summary = "Inserir novas categoria", description = "Inserir novas categoria")
@@ -79,7 +79,7 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PostMapping("/criar-categoria")
+	@PostMapping("/criar")
 	public ResponseEntity<CategoriaDTO> criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.criarCategoria(categoriaDTO));
 	}
@@ -96,7 +96,7 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PutMapping("/atualizar")
 	public ResponseEntity<CategoriaDTO> atualizarNoticias(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.atualizarNoticias(categoriaDTO));
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.atualizarCategoria(categoriaDTO));
 	}
 
 	@Operation(summary = "Excluir categoria existentes", description = "Excluir categoria existentes")
@@ -109,9 +109,9 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@DeleteMapping("excluir")
-	public ResponseEntity<Void> excluirNoticias(@Valid @RequestBody CategoriaDTO categoriaDTO) {
+	public ResponseEntity<Void> excluirCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
 		
-		categoriaService.excluirNoticias(categoriaDTO);
+		categoriaService.excluirCategoria(categoriaDTO);
 		
 		return ResponseEntity.ok().build();
 	}

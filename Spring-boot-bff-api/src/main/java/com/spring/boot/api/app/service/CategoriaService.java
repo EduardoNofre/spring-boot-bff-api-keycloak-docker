@@ -30,28 +30,28 @@ public class CategoriaService {
 
 	public CategoriaDTO buscarId(Integer id) throws HandleException {
 
-		Optional<Categoria> categoriaNoticias = categoriaRepository.findById(id);
+		Optional<Categoria> categoria = categoriaRepository.findById(id);
 
-		if (categoriaNoticias.isEmpty()) {
-			throw new HandleException("NENHUMA NOTICIA ECONTRADA", HttpStatus.NO_CONTENT);
+		if (categoria.isEmpty()) {
+			throw new HandleException("NENHUMA ID PARA A CATEGORIA ECONTRADA", HttpStatus.NO_CONTENT);
 
 		}
 
-		return modelMapper.map(categoriaNoticias.get(), new TypeToken<CategoriaDTO>() {
+		return modelMapper.map(categoria.get(), new TypeToken<CategoriaDTO>() {
 		}.getType());
 
 	}
 
-	public List<CategoriaDTO> listaNoticiasRelacionadas() throws HandleException {
+	public List<CategoriaDTO> listaCategoria() throws HandleException {
 
-		List<Categoria> categoriaNoticias = categoriaRepository.findAll();
+		List<Categoria> categoria = categoriaRepository.findAll();
 
-		if (CollectionUtils.isEmpty(categoriaNoticias)) {
+		if (CollectionUtils.isEmpty(categoria)) {
 
-			throw new HandleException("NENHUMA NOTICIA ECONTRADA", HttpStatus.NO_CONTENT);
+			throw new HandleException("NENHUMA CATEGORIA ECONTRADA", HttpStatus.NO_CONTENT);
 		}
 
-		return modelMapper.map(categoriaNoticias, new TypeToken<List<CategoriaDTO>>() {
+		return modelMapper.map(categoria, new TypeToken<List<CategoriaDTO>>() {
 		}.getType());
 	}
 
@@ -66,7 +66,7 @@ public class CategoriaService {
 	}
 
 	@Transactional(rollbackOn = Exception.class)
-	public CategoriaDTO atualizarNoticias(CategoriaDTO categoriaDTO) throws HandleException {
+	public CategoriaDTO atualizarCategoria(CategoriaDTO categoriaDTO) throws HandleException {
 
 		if(categoriaRepository.findById(categoriaDTO.getId()).isPresent()) {
 
@@ -75,11 +75,11 @@ public class CategoriaService {
 			return modelMapper.map(categoriaRepository.save(entity), new TypeToken<CategoriaDTO>() {}.getType());
 		}
 
-		throw new HandleException("A noticia não pode ser atualizada", HttpStatus.CONFLICT);
+		throw new HandleException("A CATEGORIA NÃO PODE SER ATUALIZADA", HttpStatus.CONFLICT);
 	}
 
 	@Transactional(rollbackOn = Exception.class)
-	public void excluirNoticias(CategoriaDTO categoriaDTO) {
+	public void excluirCategoria(CategoriaDTO categoriaDTO) {
 
 		if(categoriaRepository.findById(categoriaDTO.getId()).isPresent()) {
 
