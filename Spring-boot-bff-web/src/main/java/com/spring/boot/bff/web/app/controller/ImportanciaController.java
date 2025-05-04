@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bff-importancia")
+@RequestMapping("/bff-web-importancia")
 @Tag(name = "Importancia", description = "Recurso bff importancia controller BFF")
 public class ImportanciaController {
 
