@@ -2,6 +2,7 @@ package com.spring.boot.api.app.model;
 
 import java.time.LocalDateTime;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,10 +33,13 @@ public class Noticia {
 	private LocalDateTime criadoEm;
 
 	@Column(name = "imagem_noticia")
-	private String imagemNoticiaPrinc;
+	private String imagemNoticia;
 	
 	@Column(name = "importancia_id")
-	private boolean importanciaId;
+	private Integer importanciaId;
+	
+	@Schema(name = "usuario_acao")
+	private String usuarioAcao;
 	
 	@Column(name = "categoria_id")
 	private Integer categoriaId;

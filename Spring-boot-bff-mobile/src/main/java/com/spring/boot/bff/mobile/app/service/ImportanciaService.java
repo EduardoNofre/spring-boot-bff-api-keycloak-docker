@@ -3,10 +3,13 @@ package com.spring.boot.bff.mobile.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.spring.boot.bff.mobile.app.client.ImportanciaClient;
 import com.spring.boot.bff.mobile.app.dto.ImportanciaDTO;
+import com.spring.boot.bff.mobile.app.handle.HandleException;
+import com.spring.boot.bff.mobile.app.util.Util;
 
 import lombok.AllArgsConstructor;
 
@@ -17,14 +20,47 @@ public class ImportanciaService {
 	@Autowired
 	private ImportanciaClient importanciaClient;
 
-	public ImportanciaDTO buscarId(Integer id)  {return null;}
+	public ImportanciaDTO buscarId(Integer id) throws HandleException {
 
-	public List<ImportanciaDTO> listar()  {return null;}
+		ResponseEntity<ImportanciaDTO> response = importanciaClient.buscarId(id);
 
-	public ImportanciaDTO criarImportancia(ImportanciaDTO importanciaDTO) {return null;}
+		Util.validarResponse204(response.getStatusCode().value());
 
-	public ImportanciaDTO atualizar(ImportanciaDTO importanciaDTO)  {return null;}
+		return response.getBody();
+	}
 
-	public void excluir(ImportanciaDTO importanciaDTO) {}
+	public List<ImportanciaDTO> listar() throws HandleException {
+
+		ResponseEntity<List<ImportanciaDTO>> response = importanciaClient.listar();
+
+		Util.validarResponse204(response.getStatusCode().value());
+
+		return response.getBody();
+	}
+
+	public ImportanciaDTO criarImportancia(ImportanciaDTO importanciaDTO) throws HandleException {
+
+		ResponseEntity<ImportanciaDTO> response = importanciaClient.criar(importanciaDTO);
+
+		Util.validarResponse204(response.getStatusCode().value());
+
+		return response.getBody();
+	}
+
+	public ImportanciaDTO atualizar(ImportanciaDTO importanciaDTO) throws HandleException {
+
+		ResponseEntity<ImportanciaDTO> response = importanciaClient.atualizar(importanciaDTO);
+
+		Util.validarResponse204(response.getStatusCode().value());
+
+		return response.getBody();
+	}
+
+	public void excluir(ImportanciaDTO importanciaDTO) throws HandleException {
+
+		ResponseEntity<Void> response = importanciaClient.excluir(importanciaDTO);
+
+		Util.validarResponse204(response.getStatusCode().value());
+	}
 
 }

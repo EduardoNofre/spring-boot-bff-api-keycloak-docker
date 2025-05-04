@@ -49,7 +49,7 @@ public class NoticiaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/noticias")
+	@GetMapping("/id")
 	public ResponseEntity<NoticiaDTO> listaNoticia(
 			@Parameter(name = "id", description = "Número identificador da noticia", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
@@ -67,7 +67,7 @@ public class NoticiaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/listas-noticias")
+	@GetMapping("/listar")
 	public ResponseEntity<List<NoticiaDTO>> listaNoticia() throws HandleException {
 		return ResponseEntity.status(HttpStatus.OK).body(noticiaService.listaNoticia());
 	}
@@ -82,7 +82,7 @@ public class NoticiaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PostMapping("/criar-noticia")
+	@PostMapping("/criar")
 	public ResponseEntity<NoticiaDTO> criarNoticia(@Valid @RequestBody NoticiaDTO noticiaDTO) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(noticiaService.criarNoticia(noticiaDTO));
 	}
@@ -97,7 +97,7 @@ public class NoticiaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PutMapping("/atualizar-noticia-principa")
+	@PutMapping("/atualizar")
 	public ResponseEntity<NoticiaDTO> atualizarNoticia(@Valid @RequestBody NoticiaDTO noticiaDTO) throws HandleException {
 		return ResponseEntity.status(HttpStatus.OK).body(noticiaService.atualizarNoticia(noticiaDTO));
 	}
@@ -111,7 +111,7 @@ public class NoticiaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@DeleteMapping("excluir-noticia-principa")
+	@DeleteMapping("excluir")
 	public ResponseEntity<Void> excluirNoticia(@Valid @RequestBody NoticiaDTO noticiaDTO) {
 		
 		noticiaService.excluirNoticia(noticiaDTO);

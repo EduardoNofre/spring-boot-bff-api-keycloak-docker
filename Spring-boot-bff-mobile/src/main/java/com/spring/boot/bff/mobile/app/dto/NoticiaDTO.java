@@ -13,14 +13,17 @@ public class NoticiaDTO {
 	@Schema(name = "id", description = "numero unico de identificação", example = "123", type = "Integer")
 	private Integer id;
 
-	@Schema(name = "noticias", description = "tipo noticia", example = "123", type = "String")
+	@Schema(name = "noticias", description = "tipo noticia", example = "Ufologia", type = "String")
 	private String noticias;
 
-	@Schema(name = "noticias_desc", description = "tipo noticia descrição", example = "Alines pedem asilo na terra!", type = "String")
+	@Schema(name = "noticiasDesc", description = "tipo noticia descrição", example = "Alines pedem asilo na terra!", type = "String")
 	private String noticiasDesc;
 	
-	@Schema(name = "principal", description = "indica se é uma noticia principal", example = "Aliens pedem asilo na terra!", type = "Boolean")
-	private boolean principal;
+	@Schema(name = "importanciaId", description = "indica se é uma noticia principal", example = "1", type = "Boolean")
+	private Integer importanciaId;
+	
+	@Schema(name = "usuarioAcao", description = "Nome do usuario que fez a ação", example = "Mirelly", type = "String")
+	private String usuarioAcao;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime dataHrAlteracao;

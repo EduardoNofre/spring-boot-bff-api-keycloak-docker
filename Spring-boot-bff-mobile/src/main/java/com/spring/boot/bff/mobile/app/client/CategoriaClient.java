@@ -13,16 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.boot.bff.mobile.app.dto.CategoriaDTO;
 
-import feign.Headers;
-
 @FeignClient(url = "${api.client.url}", name = "categoria")
 public interface CategoriaClient {
 
-	@Headers("Content-Type: application/json")
 	@GetMapping("/categoria/id")
 	public ResponseEntity<CategoriaDTO> buscarId(@RequestParam("id") Integer id);
 
-	@Headers("Content-Type: application/json")
 	@GetMapping("/categoria/listar")
 	public ResponseEntity<List<CategoriaDTO>> listaCategoria();
 

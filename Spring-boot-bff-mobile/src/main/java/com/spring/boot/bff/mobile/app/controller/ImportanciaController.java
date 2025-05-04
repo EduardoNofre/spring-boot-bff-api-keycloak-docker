@@ -47,8 +47,8 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/bff-importancia")
-	public ResponseEntity<ImportanciaDTO> listaNoticias(
+	@GetMapping("/bff-id")
+	public ResponseEntity<ImportanciaDTO> buscarId(
 			@Parameter(name = "id", description = "Número identificador da importancia", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
 
@@ -65,8 +65,8 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/bff-lista-importancia")
-	public ResponseEntity<List<ImportanciaDTO>> listaNoticias() throws HandleException {
+	@GetMapping("/bff-lista")
+	public ResponseEntity<List<ImportanciaDTO>> listas() throws HandleException {
 		return ResponseEntity.status(HttpStatus.OK).body(importanciaService.listar());
 	}
 
@@ -80,15 +80,15 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PostMapping("/bff-criar-importancia")
-	public ResponseEntity<ImportanciaDTO> criarImportancia(@Valid @RequestBody ImportanciaDTO importanciaDTO) {
+	@PostMapping("/bff-criar")
+	public ResponseEntity<ImportanciaDTO> criarImportancia(@Valid @RequestBody ImportanciaDTO importanciaDTO) throws HandleException{
 		return ResponseEntity.status(HttpStatus.CREATED).body(importanciaService.criarImportancia(importanciaDTO));
 	}
 	
 
 	@Operation(summary = "Atualizar importancia existentes", description = "Atualizar importancia existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", schema = @Schema(implementation = ImportanciaDTO.class)) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
@@ -96,13 +96,13 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PutMapping("/bff-atualizar")
-	public ResponseEntity<ImportanciaDTO> atualizarNoticias(@Valid @RequestBody ImportanciaDTO importanciaDTO) throws HandleException {
+	public ResponseEntity<ImportanciaDTO> atualizars(@Valid @RequestBody ImportanciaDTO importanciaDTO) throws HandleException {
 		return ResponseEntity.status(HttpStatus.OK).body(importanciaService.atualizar(importanciaDTO));
 	}
 
 	@Operation(summary = "Excluir importancia existentes", description = "Excluir importancia existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
@@ -110,7 +110,7 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@DeleteMapping("/bff-excluir")
-	public ResponseEntity<Void> excluirNoticias(@Valid @RequestBody ImportanciaDTO importanciaDTO) {
+	public ResponseEntity<Void> excluir(@Valid @RequestBody ImportanciaDTO importanciaDTO) throws HandleException {
 		
 		importanciaService.excluir(importanciaDTO);
 		
