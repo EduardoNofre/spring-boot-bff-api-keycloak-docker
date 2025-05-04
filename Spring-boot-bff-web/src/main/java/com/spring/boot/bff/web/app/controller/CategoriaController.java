@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.controller;
+package com.spring.boot.bff.web.app.controller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.api.app.dto.CategoriaDTO;
-import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.service.CategoriaService;
+import com.spring.boot.bff.web.app.dto.CategoriaDTO;
+import com.spring.boot.bff.web.app.handle.HandleException;
+import com.spring.boot.bff.web.app.service.CategoriaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,8 +29,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/categoria")
-@Tag(name = "Categoria", description = "Recurso categoria controller Api")
+@RequestMapping("/bff-web-categoria")
+@Tag(name = "Categoria", description = "Recurso categoria controller BFF")
 public class CategoriaController {
 
 	@Autowired
@@ -47,7 +47,7 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@GetMapping("/id")
-	public ResponseEntity<CategoriaDTO> listaNoticias(
+	public ResponseEntity<CategoriaDTO> listaCategoria(
 			@Parameter(name = "id", description = "Número identificador da categoria", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
 
@@ -64,9 +64,9 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@GetMapping("/listar")
-	public ResponseEntity<List<CategoriaDTO>> listaNoticiasRelacionadas() throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listaCategoria());
+	@GetMapping("/bff-lista")
+	public ResponseEntity<List<CategoriaDTO>> lista() throws HandleException {
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listaCategorias());
 	}
 
 	@Operation(summary = "Inserir novas categoria", description = "Inserir novas categoria")
@@ -79,8 +79,8 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PostMapping("/criar")
-	public ResponseEntity<CategoriaDTO> criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
+	@PostMapping("/bff-criar")
+	public ResponseEntity<CategoriaDTO> criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.criarCategoria(categoriaDTO));
 	}
 	
@@ -94,8 +94,8 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@PutMapping("/atualizar")
-	public ResponseEntity<CategoriaDTO> atualizarNoticias(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
+	@PutMapping("/bff-atualizar")
+	public ResponseEntity<CategoriaDTO> atualizar(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.atualizarCategoria(categoriaDTO));
 	}
 
@@ -108,8 +108,8 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "409", description = "Não conformidade na regra de negocio", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
-	@DeleteMapping("excluir")
-	public ResponseEntity<Void> excluirCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
+	@DeleteMapping("bff-excluir")
+	public ResponseEntity<Void> excluirCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) throws HandleException {
 		
 		categoriaService.excluirCategoria(categoriaDTO);
 		

@@ -30,7 +30,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/importancia")
-@Tag(name = "ImportanciaController", description = "Recurso importancia controller Api")
+@Tag(name = "Importancia", description = "Recurso importancia controller Api")
 public class ImportanciaController {
 
 

@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.config;
+package com.spring.boot.bff.mobile.app.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -14,9 +14,9 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API SISTEMA BACKEND")
+                        .title("API BFF MOBILE")
                         .version("1.0.0")
-                        .description("Para gerenciamento backend.")
+                        .description("Para gerenciamento back-End for front-End Mobile.")
                         .termsOfService("https://nofrereis.com/termos")
                         .contact(new Contact()
                                 .name("Equipe de Suporte")

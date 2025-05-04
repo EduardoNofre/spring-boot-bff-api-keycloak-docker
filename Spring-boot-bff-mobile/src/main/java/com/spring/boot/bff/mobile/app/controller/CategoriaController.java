@@ -29,8 +29,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bff-categoria")
-@Tag(name = "CategoriaController", description = "Recurso categoria controller BFF")
+@RequestMapping("/bff-mobile-categoria")
+@Tag(name = "Categoria", description = "Recurso categoria controller BFF")
 public class CategoriaController {
 
 	@Autowired

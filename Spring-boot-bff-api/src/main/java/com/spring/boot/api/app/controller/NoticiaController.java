@@ -33,7 +33,7 @@ import jakarta.validation.Valid;
 @Order
 @RestController
 @RequestMapping("/noticia")
-@Tag(name = "NoticiaController", description = "Recurso noticia  Api Service")
+@Tag(name = "Noticia", description = "Recurso noticia  Api Service")
 public class NoticiaController {
 
 	@Autowired
