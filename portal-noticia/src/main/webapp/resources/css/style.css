@@ -1,0 +1,64 @@
+/* Resetando margens e paddings para garantir um layout consistente */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Estilo para header fixo utlizado na master page  */
+.div-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 90px;
+	background-color: #DCDCDC;
+	color: #400000;
+	z-index: 1000;
+	
+}
+/* Estilo para o texto default 1  */
+.titulo-principal-default-1 {
+	font-family: 'Arial', sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+/* Estilo para o texto default 2  */
+.titulo-principal-default-2 {
+	font-family: 'Arial', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #808080;
+}
+
+/* Estilo para posiocionar a tabela na pagina  */
+.div-table-primcipal-default  {
+	margin-top: 65px;
+	margin-bottom: 50px;
+	padding: 75px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Estilo para footer fixo utlizado na master page  */
+.div-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	background-color: #DCDCDC;
+	color: #400000;
+	z-index: 1000;
+}
+
+@media ( max-width : 768px) {
+	.crud-demo {
+		padding: 10px;
+	}
+	.ui-panel, .products-table {
+		width: 100% !important;
+	}
+}
