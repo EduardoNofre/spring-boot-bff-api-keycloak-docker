@@ -1,0 +1,76 @@
+
+<!-- src/main/webapp/includes/datatable-categoria.xhtml -->
+<!--  - Fragmento tabela categoria -->
+<!--  - Aqui é a tabela categoria  -->
+<!--  - Na tabela temos os botoes nova categoria categoria, excluir em grupo de categoria, editar categoria, exlcuir categoria -->
+<!--  - Check box para seleciona um ou mais registros -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<p:dataTable id="dt-tab-categoria" widgetVar="wgv-categorias"
+		var="categoria" value="#{categoriaBean.listarCategorias()}"
+		reflow="true" styleClass="categoria-table"
+		selection="#{categoriaBean.categoriasSelecionadas}"
+		rowKey="#{categoria.id}" paginator="true" rows="10"
+		selectionRowMode="add" paginatorPosition="bottom"
+		emptyMessage="Nenhuma categoria encontrada.">
+
+		<p:ajax event="rowSelect"
+			update=":form-categorias:delete-categorias-button" />
+		<p:ajax event="rowUnselect"
+			update=":form-categorias:delete-categorias-button" />
+		<p:ajax event="rowSelectCheckbox"
+			update=":form-categorias:delete-categorias-button" />
+		<p:ajax event="rowUnselectCheckbox"
+			update=":form-categorias:delete-categorias-button" />
+		<p:ajax event="toggleSelect"
+			update=":form-categorias:delete-categorias-button" />
+
+		<p:column selectionMode="multiple" exportable="false" />
+
+		<p:column headerText="Id">
+			<h:outputText value="#{categoria.id}" />
+		</p:column>
+
+		<p:column headerText="Categoria">
+			<h:outputText value="#{categoria.categoria}" />
+		</p:column>
+
+		<p:column headerText="Descrição">
+			<h:outputText value="#{categoria.categoriaDesc}" />
+		</p:column>
+
+		<p:column headerText="Criado em">
+			<h:outputText value="#{categoria.criadoEm}">
+			</h:outputText>
+		</p:column>
+
+		<p:column headerText="Última Alteração">
+			<h:outputText value="#{categoria.dataHrAlteracao}">
+			</h:outputText>
+		</p:column>
+
+		<p:column exportable="false" headerText="Ações">
+			<p:commandButton icon="pi pi-pencil"
+				update=":form-dialog-edit-cad:gerenciador-categoria-content-edit"
+				oncomplete="PF('wgv-gerenciadorCategoriaDialogEdit').show()"
+				styleClass="edit-button rounded-button ui-button-success"
+				process="@this">
+				<f:setPropertyActionListener value="#{categoria}"
+					target="#{categoriaBean.categoriaSelecionada}" />
+				<p:resetInput
+					target=":form-dialog-edit-cad:gerenciador-categoria-content-edit" />
+			</p:commandButton>
+			<p:commandButton class="ui-button-warning rounded-button"
+				icon="pi pi-trash" process="@this"
+				oncomplete="PF('deleteCategoriaDialog').show()">
+				<f:setPropertyActionListener value="#{categoria}"
+					target="#{categoriaBean.categoriaSelecionada}" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+
+</ui:composition>

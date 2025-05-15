@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <!-- Título da página, pode ser sobreescrito nas páginas que utilizam o template -->
+    <title><ui:insert name="title">Gerenciamento de Categorias</ui:insert></title>
+    
+    <!-- Inclusão de arquivo CSS para estilo global -->
+    <h:outputStylesheet library="css" name="style.css" />
+    
+    <!-- Definição de meta tags para responsividade e charset -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+</h:head>
+
+<h:body>
+    <!-- Cabeçalho fixo -->
+	<ui:include src="/template/header.xhtml" />
+
+    <!-- Área de conteúdo dinâmica -->
+    <div class="content">
+        <!-- A página que usar este template vai preencher a área "content" -->
+        <ui:insert name="content">
+            <!-- Este conteúdo será substituído nas páginas que usarem o template -->
+        </ui:insert>
+    </div>
+
+    <!-- Rodapé fixo -->
+		<ui:include src="/template/footer.xhtml" />
+</h:body>
+
+</html>

@@ -1,0 +1,41 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<!-- Sobrescreve o título do template -->
+	<ui:define name="title">Gerenciamento de Categorias - Página</ui:define>
+
+	<!-- Sobrescreve o conteúdo do template -->
+	<ui:define name="content">
+		<div class="card categoria-gerenciamento">
+			<h:form id="form-categorias">
+				<p:growl id="g-mensagem" showDetail="true" />
+				<div id="content" class="div-table-primcipal-default">
+					<div style="min-width: 600px;">
+						<p:panel
+							style="width: 70%; margin: 0 auto; background-color: #DCDCDC; color: #DCDCDC; border: 2px solid #DCDCDC;">
+
+							<!-- categoria-toolbar.xhtml -->
+							<!-- aqui temos os botoes incluir nova categoria e exclusão multi categoria -->
+							<ui:include src="/includes/categoria-toolbar.xhtml" />
+
+							<!-- categoria-tabela.xhtml -->
+							<!-- Excluir, edittar, multi excluir e nova categoria -->
+							<ui:include src="/includes/categoria-tabela.xhtml" />
+
+						</p:panel>
+					</div>
+				</div>
+			</h:form>
+			<h:form id="form-dialog-edit-cad">
+
+				<!-- categoria-dialog.xhtml -->
+				<!-- Temos dialog de editar categoria e nova categoria e confirmação exclusão  -->
+				<ui:include src="/includes/categoria-dialog.xhtml" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

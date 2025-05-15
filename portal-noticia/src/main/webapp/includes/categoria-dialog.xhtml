@@ -1,0 +1,114 @@
+<!-- src/main/webapp/includes/dialog-categoria.xhtml -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- Dialogo para Criar Categoria -->
+    <p:dialog header="Criar uma Categoria"
+              showEffect="fade"
+              modal="true"
+              widgetVar="gerenciadoCategoriaDialog"
+              responsive="true">
+        <p:outputPanel id="manage-categoria-content" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty categoriaBean.dto}">
+                <!-- Campo Categoria -->
+                <div class="field">
+                    <p:outputLabel for="categoria">Salvar Categoria</p:outputLabel>
+                    <p:inputText id="categoria" value="#{categoriaBean.dto.categoria}" required="true"/>
+                </div>
+
+                <!-- Campo Descrição -->
+                <div class="field">
+                    <p:outputLabel for="descricao">Descrição</p:outputLabel>
+                    <p:inputTextarea id="descricao" value="#{categoriaBean.dto.categoriaDesc}" autoResize="true"/>
+                </div>
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Salvar -->
+            <p:commandButton value="Salvar"
+                             icon="pi pi-check"
+                             actionListener="#{categoriaBean.salvarCategoria}"
+                             update=":form-categorias:g-mensagem :form-categorias:dt-tab-categoria"
+                             process="manage-categoria-content @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('gerenciadoCategoriaDialog').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+
+    <!-- Dialogo para Editar Categoria -->
+    <p:dialog header="Editar Categoria"
+              showEffect="fade"
+              modal="true"
+              widgetVar="wgv-gerenciadorCategoriaDialogEdit"
+              responsive="true">
+        <p:outputPanel id="gerenciador-categoria-content-edit" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty categoriaBean.categoriaSelecionada}">
+                <!-- Campo ID Categoria -->
+                <div class="field">
+                    <p:outputLabel for="categoria">Id categoria</p:outputLabel>
+                    <p:inputText id="IdEdit"
+                                 value="#{categoriaBean.categoriaSelecionada.id}"
+                                 required="true"
+                                 disabled="true"/>
+                </div>
+
+                <!-- Campo Categoria -->
+                <div class="field">
+                    <p:outputLabel for="categoriaEdit">Editar categoria</p:outputLabel>
+                    <p:inputText id="categoriaEdit"
+                                 value="#{categoriaBean.categoriaSelecionada.categoria}"
+                                 required="true"/>
+                </div>
+
+                <!-- Campo Descrição -->
+                <div class="field">
+                    <p:outputLabel for="descricaoEdit">Descrição</p:outputLabel>
+                    <p:inputTextarea id="descricaoEdit"
+                                     value="#{categoriaBean.categoriaSelecionada.categoriaDesc}"
+                                     autoResize="true"/>
+                </div>
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Editar -->
+            <p:commandButton value="Editar"
+                             icon="pi pi-check"
+                             actionListener="#{categoriaBean.editarCategoria}"
+                             update=":form-categorias:g-mensagem :form-categorias:dt-tab-categoria"
+                             process="gerenciador-categoria-content-edit @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('wgv-gerenciadorCategoriaDialogEdit').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+    
+    		<!-- Confirmação de exclusão multi select categorias -->
+        <p:confirmDialog global="true" showEffect="fade" width="300">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                icon="pi pi-times" />
+        </p:confirmDialog>
+        
+			<!-- Confirmação de exclusão do botão da linha da tabela -->
+			<p:confirmDialog widgetVar="deleteCategoriaDialog"  showEffect="fade" width="300" message="Excluir esta categoria?" header="Confirmação" severity="warn">
+				<p:commandButton value="Sim" icon="pi pi-check" actionListener="#{categoriaBean.excluirCategoria}" process="@this" update=":form-categorias:g-mensagem :form-categorias:dt-tab-categoria" oncomplete="PF('deleteCategoriaDialog').hide()" />
+				<p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deleteCategoriaDialog').hide()" />
+			</p:confirmDialog>
+
+</ui:composition>
