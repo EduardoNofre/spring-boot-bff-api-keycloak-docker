@@ -125,14 +125,14 @@
 				widgetVar="gerenciadoCategoriaDialog" responsive="true">
 				<p:outputPanel id="manage-categoria-content" class="ui-fluid">
 					<p:outputPanel
-						rendered="#{not empty categoriaBean.categoriaSelecionada}">
+						rendered="#{not empty categoriaBean.dto}">
 						<div class="field">
 							<p:outputLabel for="categoria">Salvar Categoria</p:outputLabel>
-							<p:inputText id="categoria" value="#{categoriaBean.categoriaSelecionada.categoria}" required="true" />
+							<p:inputText id="categoria" value="#{categoriaBean.dto.categoria}" />
 						</div>
 						<div class="field">
 							<p:outputLabel for="descricao">Descrição</p:outputLabel> 
-							<p:inputTextarea id="descricao" value="#{categoriaBean.categoriaSelecionada.categoriaDesc}" autoResize="true" />
+							<p:inputTextarea id="descricao" value="#{categoriaBean.dto.categoriaDesc}" autoResize="true"/>
 						</div>
 					</p:outputPanel>
 				</p:outputPanel>

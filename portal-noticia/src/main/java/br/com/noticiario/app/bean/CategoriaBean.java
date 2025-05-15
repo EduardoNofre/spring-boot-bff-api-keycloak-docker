@@ -24,6 +24,8 @@ public class CategoriaBean {
 	private CategoriaService categoriaService;
 
 	private CategoriaDTO categoriaSelecionada;
+	
+	private CategoriaDTO dto;
 
 	private List<CategoriaDTO> categoriasSelecionadas;
 
@@ -34,15 +36,15 @@ public class CategoriaBean {
 
 	public void salvarCategoria() throws HandleException {
 
-		if (this.categoriaSelecionada.getId() == null) {
-			this.categoriaSelecionada.setId(null);
-			this.categoriaSelecionada.setDataHrAlteracao(LocalDateTime.now());
-			this.categoriaSelecionada.setCriadoEm(LocalDateTime.now());
-			categoriaService.salvar(categoriaSelecionada);
+		if (this.dto.getId() == null) {
+			this.dto.setId(null);
+			this.dto.setDataHrAlteracao(LocalDateTime.now());
+			this.dto.setCriadoEm(LocalDateTime.now());
+			categoriaService.salvar(dto);
 		}
 		PrimeFaces.current().executeScript("PF('gerenciadoCategoriaDialog').hide()");
 		PrimeFaces.current().ajax().update("form-categorias:g-mensagem", "form-categorias:dt-tab-categoria");
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Categoria salva!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastro","Categoria cadastrada!"));
 	}
 
 	public void editarCategoria() throws HandleException {
@@ -54,20 +56,20 @@ public class CategoriaBean {
 		}
 		PrimeFaces.current().executeScript("PF('wgv-gerenciadorCategoriaDialogEdit').hide()");
 		PrimeFaces.current().ajax().update("form-categorias:g-mensagem", "form-categorias:dt-tab-categoria");
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Categoria editada!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Edição","Categoria editada!"));
 
 	}
 
 	public void excluirCategoria() throws HandleException {
 
 		categoriaService.excluir(categoriaSelecionada);
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Categoria excluida!"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Exclusão","Categoria excluida!"));
 		PrimeFaces.current().ajax().update("form-categorias:g-mensagem", "form-categorias:dt-tab-categoria");
 
 	}
 
 	public void inserirNovaCategoria() {
-		this.categoriaSelecionada = new CategoriaDTO();
+		this.dto = new CategoriaDTO();
 	}
 
 	public boolean temCategoriaSelecionada() {
@@ -91,10 +93,10 @@ public class CategoriaBean {
 		}
 
 		if (categoriasSelecionadas.size() > 1) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A remoção das categorias foi realizada com sucesso"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Remoção","A remoção das categorias foi realizada com sucesso"));
 		}
 		else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A categoria foi removida com sucesso"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Remoção","A categoria foi removida com sucesso"));
 		}
 		this.categoriasSelecionadas = null;
 		PrimeFaces.current().ajax().update("form-categorias:g-mensagem", "form-categorias:dt-tab-categoria");

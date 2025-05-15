@@ -49,4 +49,10 @@ public class CategoriaService {
 
 		categoriaClient.excluirCategoria(categoriaDTO);
 	}
+	
+	
+	public boolean validarCampos() {
+		
+		return false;
+	}
 }
