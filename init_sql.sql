@@ -39,8 +39,9 @@ CREATE TABLE IF NOT EXISTS noticia(
 
 CREATE TABLE IF NOT EXISTS imagem(
     id INT AUTO_INCREMENT,
-    repositorio VARCHAR(50) ,
-    servidor VARCHAR(50),
+    repositorio VARCHAR(100) ,
+    servidor VARCHAR(100),
+	imagem VARCHAR(100),
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
 	noticia_id INT,
 	PRIMARY KEY (id),
