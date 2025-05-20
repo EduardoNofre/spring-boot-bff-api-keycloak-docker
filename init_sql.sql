@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS imagem(
     servidor VARCHAR(50),
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
 	noticia_id INT,
-	usuario_acao VARCHAR(50) not null,
 	PRIMARY KEY (id),
 	CONSTRAINT fk_noticia_01 FOREIGN KEY (noticia_id) REFERENCES noticia(id)
     ON DELETE SET NULL
