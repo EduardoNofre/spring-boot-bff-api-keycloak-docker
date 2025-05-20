@@ -1,11 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head></h:head> 
-<body> 
+	<!-- MENU LATERAL FIXO -->
+	<div  style="width: 250px; background-color: #f4f4f4; padding: 10px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+		<h:form id="menu-lateral" style="width: 300px; padding: 75px; margin-top: 0px; padding-left: 9px; ">
+			<p:panelMenu  style="width: 100%;">
+				<p:submenu label="Opções">
+					<p:menuitem value="Salvar" icon="pi pi-save"
+						action="#{menuView.save}" ajax="false" />
+					<p:menuitem value="Atualizar" icon="pi pi-refresh"
+						action="#{menuView.update}" />
+					<p:menuitem value="Excluir" icon="pi pi-times"
+						action="#{menuView.delete}" />
+				</p:submenu>
+				<p:submenu label="Navegação">
+					<p:menuitem value="Categoria" outcome="/pages/categoria"  icon="pi pi-upload" />
+					<p:menuitem value="Importancia" outcome="/template/template" icon="pi pi-upload" />
+					<p:menuitem value="Noticia" outcome="/template/template" icon="pi pi-upload" />
+					<p:menuitem value="Template" outcome="/template/template" icon="pi pi-upload" />
 
-</body> 
-</html>
+				</p:submenu>
+			</p:panelMenu>
+		</h:form>
+	</div>
+</ui:composition>

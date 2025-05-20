@@ -10,8 +10,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-	<p:dataTable id="dt-tab-categoria" widgetVar="wgv-categorias"
-		var="categoria" value="#{categoriaBean.listarCategorias()}"
+	<p:dataTable id="dt-tab-categoria" widgetVar="wgv-categorias" var="categoria" value="#{categoriaBean.listarCategorias()}"
 		reflow="true" styleClass="categoria-table"
 		selection="#{categoriaBean.categoriasSelecionadas}"
 		rowKey="#{categoria.id}" paginator="true" rows="8"
@@ -72,5 +71,4 @@
 			</p:commandButton>
 		</p:column>
 	</p:dataTable>
-
 </ui:composition>
