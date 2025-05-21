@@ -19,6 +19,7 @@
 6 - Docker <br>
 7 - Docker Compose.<br>
 8 - Keycloak.<br>
+9 - OpenFeing.<br>
 
 <h1 align="center">
    Modelo da arquiteura que iremos construir

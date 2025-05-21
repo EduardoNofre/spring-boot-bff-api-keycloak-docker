@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS categoria(
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS importancia(
+CREATE TABLE IF NOT EXISTS prioridade(
     id INT AUTO_INCREMENT,
     importancia VARCHAR(50) not null,
     importancias_desc VARCHAR(50) not null,
@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS noticia(
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
 	imagem_noticia VARCHAR(50) not null,
 	categoria_id INT,
-	importancia_id INT,
+	prioridade_id INT,
 	usuario_acao VARCHAR(50) not null,
 	PRIMARY KEY (id),
 	CONSTRAINT fk_categoria_01 FOREIGN KEY (categoria_id) REFERENCES categoria(id),
-	CONSTRAINT fk_importancia_01 FOREIGN KEY (importancia_id) REFERENCES importancia(id)
+	CONSTRAINT fk_importancia_01 FOREIGN KEY (prioridade_id) REFERENCES prioridade(id)
     ON DELETE SET NULL
     ON UPDATE CASCADE
 );
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS imagem(
     id INT AUTO_INCREMENT,
     repositorio VARCHAR(100) ,
     servidor VARCHAR(100),
-	imagem VARCHAR(100),
+    imagem VARCHAR(100),
 	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
 	noticia_id INT,
 	PRIMARY KEY (id),
