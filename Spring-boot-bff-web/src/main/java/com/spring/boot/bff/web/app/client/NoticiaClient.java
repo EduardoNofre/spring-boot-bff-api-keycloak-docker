@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.boot.bff.web.app.dto.NoticiaDTO;
 
-@FeignClient(url = "${api.client.url}", name = "noticia")
+@FeignClient(url = "${api.client.api.back.end.url}", name = "noticia")
 public interface NoticiaClient {
 
 	@GetMapping("/noticia/id")
