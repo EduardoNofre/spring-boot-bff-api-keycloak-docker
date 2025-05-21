@@ -37,10 +37,12 @@ CREATE TABLE IF NOT EXISTS noticia(
     data_hr_alteracao DATETIME,
 	criado_em DATETIME not null,
 	categoria_id INT,
+	subCategoria_id INT,
 	prioridade_id INT,
 	usuario_acao VARCHAR(50) not null,
 	PRIMARY KEY (id),
 	CONSTRAINT fk_categoria_01 FOREIGN KEY (categoria_id) REFERENCES categoria(id),
+	CONSTRAINT fk_subCategoria_01 FOREIGN KEY (subCategoria_id) REFERENCES subCategoria(id),
 	CONSTRAINT fk_importancia_01 FOREIGN KEY (prioridade_id) REFERENCES prioridade(id)
     ON DELETE SET NULL
     ON UPDATE CASCADE
@@ -59,7 +61,3 @@ CREATE TABLE IF NOT EXISTS imagem(
     ON DELETE SET NULL
     ON UPDATE CASCADE
 );
-
-
-select * from noticia;
-select * from imagem;
