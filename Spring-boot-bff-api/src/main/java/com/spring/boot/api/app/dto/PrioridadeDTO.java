@@ -1,4 +1,4 @@
-package br.com.noticiario.app.dto;
+package com.spring.boot.api.app.dto;
 
 import java.time.LocalDateTime;
 
@@ -8,16 +8,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class ImportanciaDTO {
+public class PrioridadeDTO {
 
 	@Schema(name = "id", description = "numero unico de identificação", example = "1", type = "Integer")
 	private Integer id; 
 	
-	@Schema(name = "importancia", description = "Nome importancia", example = "Principal", type = "String")
-	private String importancia;
+	@Schema(name = "prioridade", description = "Nome prioridade", example = "Principal", type = "String")
+	private String prioridade;
 	
-	@Schema(name = "importanciasDesc", description = "Descrição da importancia", example = "materia principal", type = "String")
-	private String importanciasDesc;
+	@Schema(name = "prioridadeDesc", description = "Descrição da prioridade", example = "materia principal", type = "String")
+	private String prioridadeDesc;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime criadoEm;

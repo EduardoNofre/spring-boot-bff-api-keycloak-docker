@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.api.app.dto.ImportanciaDTO;
+import com.spring.boot.api.app.dto.PrioridadeDTO;
 import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.service.ImportanciaService;
+import com.spring.boot.api.app.service.PrioridadeService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,18 +29,18 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/importancia")
-@Tag(name = "Importancia", description = "Recurso importancia controller Api")
-public class ImportanciaController {
+@RequestMapping("/prioridade")
+@Tag(name = "Prioridade", description = "Recurso prioridade controller Api")
+public class PrioridadeController {
 
 
 
 	@Autowired
-	private ImportanciaService importanciaService;
+	private PrioridadeService prioridadeService;
 
-	@Operation(summary = "Retorna uma importancia", description = "Retorna uma importancia")
+	@Operation(summary = "Retorna uma prioridade", description = "Retorna uma prioridade")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PrioridadeDTO.class))) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -49,16 +49,16 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@GetMapping("/id")
-	public ResponseEntity<ImportanciaDTO> listaNoticias(
-			@Parameter(name = "id", description = "Número identificador da importancia", example = "123") @RequestParam(name = "id", required = true) Integer id)
+	public ResponseEntity<PrioridadeDTO> listaNoticias(
+			@Parameter(name = "id", description = "Número identificador da prioridade", example = "123") @RequestParam(name = "id", required = true) Integer id)
 			throws HandleException {
 
-		return ResponseEntity.status(HttpStatus.OK).body(importanciaService.buscarId(id));
+		return ResponseEntity.status(HttpStatus.OK).body(prioridadeService.buscarId(id));
 	}
 
-	@Operation(summary = "Listar todas as importancia", description = "Listar todas as importancia")
+	@Operation(summary = "Listar todas as prioridade", description = "Listar todas as prioridade")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PrioridadeDTO.class))) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -67,13 +67,13 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@GetMapping("/listar")
-	public ResponseEntity<List<ImportanciaDTO>> listaNoticias() throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(importanciaService.listar());
+	public ResponseEntity<List<PrioridadeDTO>> listaNoticias() throws HandleException {
+		return ResponseEntity.status(HttpStatus.OK).body(prioridadeService.listar());
 	}
 
-	@Operation(summary = "Inserir novas importancia", description = "Inserir novas importancia")
+	@Operation(summary = "Inserir novas prioridade", description = "Inserir novas prioridade")
 	@ApiResponses(value = { @ApiResponse(responseCode = "201", description = "Criado", content = {
-			@Content(mediaType = "application/json", schema = @Schema(implementation = ImportanciaDTO.class)) }),
+			@Content(mediaType = "application/json", schema = @Schema(implementation = PrioridadeDTO.class)) }),
 			@ApiResponse(responseCode = "204", description = "Sem conteudo", content = @Content),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
@@ -82,14 +82,14 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PostMapping("/criar")
-	public ResponseEntity<ImportanciaDTO> criarImportancia(@Valid @RequestBody ImportanciaDTO importanciaDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(importanciaService.criarImportancia(importanciaDTO));
+	public ResponseEntity<PrioridadeDTO> criarPrioridade(@Valid @RequestBody PrioridadeDTO prioridadeDTO) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(prioridadeService.criarPrioridade(prioridadeDTO));
 	}
 	
 
-	@Operation(summary = "Atualizar importancia existentes", description = "Atualizar importancia existentes")
+	@Operation(summary = "Atualizar prioridade existentes", description = "Atualizar prioridade existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PrioridadeDTO.class))) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
@@ -97,13 +97,13 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PutMapping("/atualizar")
-	public ResponseEntity<ImportanciaDTO> atualizarNoticias(@Valid @RequestBody ImportanciaDTO importanciaDTO) throws HandleException {
-		return ResponseEntity.status(HttpStatus.OK).body(importanciaService.atualizar(importanciaDTO));
+	public ResponseEntity<PrioridadeDTO> atualizarNoticias(@Valid @RequestBody PrioridadeDTO prioridadeDTO) throws HandleException {
+		return ResponseEntity.status(HttpStatus.OK).body(prioridadeService.atualizar(prioridadeDTO));
 	}
 
-	@Operation(summary = "Excluir importancia existentes", description = "Excluir importancia existentes")
+	@Operation(summary = "Excluir prioridade existentes", description = "Excluir prioridade existentes")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
-			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ImportanciaDTO.class))) }),
+			@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PrioridadeDTO.class))) }),
 			@ApiResponse(responseCode = "400", description = "Erro processar a requisição", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Não autorizado", content = @Content),
 			@ApiResponse(responseCode = "404", description = "Pagina não encontrado", content = @Content),
@@ -111,9 +111,9 @@ public class ImportanciaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@DeleteMapping("/excluir")
-	public ResponseEntity<Void> excluirNoticias(@Valid @RequestBody ImportanciaDTO importanciaDTO) {
+	public ResponseEntity<Void> excluirNoticias(@Valid @RequestBody PrioridadeDTO prioridadeDTO) {
 		
-		importanciaService.excluir(importanciaDTO);
+		prioridadeService.excluir(prioridadeDTO);
 		
 		return ResponseEntity.ok().build();
 	}

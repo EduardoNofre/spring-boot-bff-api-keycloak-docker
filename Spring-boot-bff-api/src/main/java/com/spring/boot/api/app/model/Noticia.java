@@ -35,8 +35,8 @@ public class Noticia {
 	@Column(name = "imagem_noticia")
 	private String imagemNoticia;
 	
-	@Column(name = "importancia_id")
-	private Integer importanciaId;
+	@Column(name = "prioridade_id")
+	private Integer prioridadeId;
 	
 	@Schema(name = "usuario_acao")
 	private String usuarioAcao;

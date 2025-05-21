@@ -19,8 +19,8 @@ public class NoticiaDTO {
 	@Schema(name = "noticias_desc", description = "tipo noticia descrição", example = "Alines pedem asilo na terra!", type = "String")
 	private String noticiasDesc;
 	
-	@Schema(name = "importanciaId", description = "indica se é uma noticia principal", example = "1", type = "Boolean")
-	private Integer importanciaId;
+	@Schema(name = "prioridadeId", description = "indica se é uma noticia principal", example = "1", type = "Boolean")
+	private Integer prioridadeId;
 	
 	@Schema(name = "usuarioAcao", description = "Nome do usuario que fez a ação", example = "Mirelly", type = "String")
 	private String usuarioAcao;

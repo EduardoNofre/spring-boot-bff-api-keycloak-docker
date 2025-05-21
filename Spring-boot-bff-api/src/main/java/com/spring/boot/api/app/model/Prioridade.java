@@ -12,18 +12,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "importancia")
-public class Importancia {
+@Table(name = "prioridade")
+public class Prioridade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
 	
-	@Column(name = "importancia ")
-	private String importancia;
+	@Column(name = "prioridade ")
+	private String prioridade;
 	
-	@Column(name = "importancias_desc ")
-	private String importanciasDesc;
+	@Column(name = "prioridade_desc ")
+	private String prioridadeDesc;
 	
 	@Column(name = "criado_em ")
 	private LocalDateTime criadoEm;

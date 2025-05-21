@@ -1,7 +1,6 @@
 package br.com.noticiario.app.bean;
 
 import org.primefaces.model.menu.DefaultMenuItem;
-import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
 
 import jakarta.annotation.PostConstruct;

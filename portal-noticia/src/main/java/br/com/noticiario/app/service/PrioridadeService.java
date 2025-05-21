@@ -3,11 +3,11 @@ package br.com.noticiario.app.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.noticiario.app.client.ImportanciaClient;
+import br.com.noticiario.app.client.PrioridadeClient;
 
 @Service
-public class ImportanciaService {
+public class PrioridadeService {
 
 	@Autowired
-	private ImportanciaClient importanciaClient;
+	private PrioridadeClient prioridadeClient;
 }
