@@ -30,9 +30,6 @@ public class NoticiaDTO {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime criadoEm;
-
-	@Schema(name = "imagemNoticia", description = "repositorio da imagem principal", example = "/mnt/imag/sportes/tetse.png", type = "String")
-	private String imagemNoticia;
 	
 	@Schema(name = "categoriaId", description = "fk categoria Id", example = "123", type = "String")
 	private Integer categoriaId;

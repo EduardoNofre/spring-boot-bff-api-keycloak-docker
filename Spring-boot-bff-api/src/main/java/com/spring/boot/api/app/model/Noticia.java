@@ -31,9 +31,6 @@ public class Noticia {
 
 	@Column(name = "criado_em")
 	private LocalDateTime criadoEm;
-
-	@Column(name = "imagem_noticia")
-	private String imagemNoticia;
 	
 	@Column(name = "prioridade_id")
 	private Integer prioridadeId;
