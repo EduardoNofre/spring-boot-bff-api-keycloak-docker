@@ -24,9 +24,9 @@ CREATE TABLE IF NOT EXISTS subCategoria(
 
 CREATE TABLE IF NOT EXISTS prioridade(
     id INT AUTO_INCREMENT,
-    prioridade VARCHAR(50) not null,
-    prioridade_desc VARCHAR(50) not null,
-	criado_em TIMESTAMP default CURRENT_TIMESTAMP,
+    prioridade VARCHAR(100) not null,
+    prioridade_desc VARCHAR(100) not null,
+	criado_em DATETIME,
 	PRIMARY KEY (id)
 );
 
