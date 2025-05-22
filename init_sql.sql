@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS categoria(
 );
 
 
-CREATE TABLE IF NOT EXISTS subCategoria(
+CREATE TABLE IF NOT EXISTS sub_categoria(
     id INT AUTO_INCREMENT,
-   	subCategoria VARCHAR(50) not null,
+   	sub_categoria VARCHAR(50) not null,
 	criado_em DATETIME,
 	categoria_id INT,
 	PRIMARY KEY (id),
@@ -61,3 +61,6 @@ CREATE TABLE IF NOT EXISTS imagem(
     ON DELETE SET NULL
     ON UPDATE CASCADE
 );
+
+
+
