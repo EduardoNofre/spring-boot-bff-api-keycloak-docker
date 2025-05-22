@@ -1,0 +1,103 @@
+<!-- src/main/webapp/includes/dialog-subCategoria.xhtml -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- Dialogo para Criar SubCategoria -->
+    <p:dialog header="Criar uma SubCategoria"
+              showEffect="fade"
+              modal="true"
+              widgetVar="gerenciadoSubCategoriaDialog"
+              responsive="true">
+        <p:outputPanel id="manage-subCategoria-content" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty subCategoriaBean.dto}">
+                <!-- Campo SubCategoria -->
+                <div class="field">
+                    <p:outputLabel for="subCategoria">Salvar SubCategoria</p:outputLabel>
+                    <p:inputText id="subCategoria" value="#{subCategoriaBean.dto.subCategoria}" required="true"/>
+                </div>
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Salvar -->
+            <p:commandButton value="Salvar"
+                             icon="pi pi-check"
+                             actionListener="#{subCategoriaBean.salvarSubCategoria}"
+                             update=":form-subCategorias:g-mensagem :form-subCategorias:dt-tab-subCategoria"
+                             process="manage-subCategoria-content @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('gerenciadoSubCategoriaDialog').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+
+    <!-- Dialogo para Editar SubCategoria -->
+    <p:dialog header="Editar SubCategoria"
+              showEffect="fade"
+              modal="true"
+              widgetVar="wgv-gerenciadorSubCategoriaDialogEdit"
+              responsive="true">
+        <p:outputPanel id="gerenciador-subCategoria-content-edit" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty subCategoriaBean.subCategoriaSelecionada}">
+                <!-- Campo ID SubCategoria -->
+                <div class="field">
+                    <p:outputLabel for="subCategoria">Id subCategoria</p:outputLabel>
+                    <p:inputText id="IdEdit"
+                                 value="#{subCategoriaBean.subCategoriaSelecionada.id}"
+                                 required="true"
+                                 disabled="true"/>
+                </div>
+
+                <!-- Campo SubCategoria -->
+                <div class="field">
+                    <p:outputLabel for="SubCategoriaEdit">Editar subCategoria</p:outputLabel>
+                    <p:inputText id="SubCategoriaEdit"
+                                 value="#{subCategoriaBean.subCategoriaSelecionada.subCategoria}"
+                                 required="true"/>
+                </div>
+
+
+                
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Editar -->
+            <p:commandButton value="Editar"
+                             icon="pi pi-check"
+                             actionListener="#{subCategoriaBean.editarSubCategoria}"
+                             update=":form-subCategorias:g-mensagem :form-subCategorias:dt-tab-subCategoria"
+                             process="gerenciador-subCategoria-content-edit @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('wgv-gerenciadorSubCategoriaDialogEdit').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+    
+    		<!-- Confirmação de exclusão multi select prioridades -->
+        <p:confirmDialog global="true" showEffect="fade" width="300">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                icon="pi pi-times" />
+        </p:confirmDialog>
+        
+			<!-- Confirmação de exclusão do botão da linha da tabela -->
+			<p:confirmDialog widgetVar="deleteSubCategoriaDialog"  showEffect="fade" width="300" message="Excluir esta subCategoria?" header="Confirmação" severity="warn">
+				<p:commandButton value="Sim" icon="pi pi-check" actionListener="#{subCategoriaBean.excluirSubCategoria}" process="@this" update=":form-subCategorias:g-mensagem :form-subCategorias:dt-tab-subCategoria" oncomplete="PF('deleteSubCategoriaDialog').hide()" />
+				<p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deleteSubCategoriaDialog').hide()" />
+			</p:confirmDialog>
+
+</ui:composition>

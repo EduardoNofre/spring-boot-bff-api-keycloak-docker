@@ -1,0 +1,114 @@
+<!-- src/main/webapp/includes/dialog-prioridade.xhtml -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- Dialogo para Criar Prioridade -->
+    <p:dialog header="Criar uma Prioridade"
+              showEffect="fade"
+              modal="true"
+              widgetVar="gerenciadoPrioridadeDialog"
+              responsive="true">
+        <p:outputPanel id="manage-prioridade-content" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty prioridadeBean.dto}">
+                <!-- Campo Prioridade -->
+                <div class="field">
+                    <p:outputLabel for="prioridade">Salvar Prioridade</p:outputLabel>
+                    <p:inputText id="prioridade" value="#{prioridadeBean.dto.prioridade}" required="true"/>
+                </div>
+
+                <!-- Campo Descrição -->
+                <div class="field">
+                    <p:outputLabel for="descricao">Descrição</p:outputLabel>
+                    <p:inputTextarea id="descricao" value="#{prioridadeBean.dto.prioridadeDesc}" autoResize="true"/>
+                </div>
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Salvar -->
+            <p:commandButton value="Salvar"
+                             icon="pi pi-check"
+                             actionListener="#{prioridadeBean.salvarPrioridade}"
+                             update=":form-prioridades:g-mensagem :form-prioridades:dt-tab-prioridade"
+                             process="manage-prioridade-content @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('gerenciadoPrioridadeDialog').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+
+    <!-- Dialogo para Editar Prioridade -->
+    <p:dialog header="Editar Prioridade"
+              showEffect="fade"
+              modal="true"
+              widgetVar="wgv-gerenciadorPrioridadeDialogEdit"
+              responsive="true">
+        <p:outputPanel id="gerenciador-prioridade-content-edit" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty prioridadeBean.prioridadeSelecionada}">
+                <!-- Campo ID Prioridade -->
+                <div class="field">
+                    <p:outputLabel for="prioridade">Id prioridade</p:outputLabel>
+                    <p:inputText id="IdEdit"
+                                 value="#{prioridadeBean.prioridadeSelecionada.id}"
+                                 required="true"
+                                 disabled="true"/>
+                </div>
+
+                <!-- Campo Prioridade -->
+                <div class="field">
+                    <p:outputLabel for="prioridadeEdit">Editar prioridade</p:outputLabel>
+                    <p:inputText id="prioridadeEdit"
+                                 value="#{prioridadeBean.prioridadeSelecionada.prioridade}"
+                                 required="true"/>
+                </div>
+
+                <!-- Campo Descrição -->
+                <div class="field">
+                    <p:outputLabel for="descricaoEdit">Descrição</p:outputLabel>
+                    <p:inputTextarea id="descricaoEdit"
+                                     value="#{prioridadeBean.prioridadeSelecionada.prioridadeDesc}"
+                                     autoResize="true"/>
+                </div>
+            </p:outputPanel>
+        </p:outputPanel>
+
+        <!-- Rodapé do Dialog -->
+        <f:facet name="footer">
+            <!-- Botão Editar -->
+            <p:commandButton value="Editar"
+                             icon="pi pi-check"
+                             actionListener="#{prioridadeBean.editarPrioridade}"
+                             update=":form-prioridades:g-mensagem :form-prioridades:dt-tab-prioridade"
+                             process="gerenciador-prioridade-content-edit @this" />
+
+            <!-- Botão Cancelar -->
+            <p:commandButton value="Cancelar"
+                             icon="pi pi-times"
+                             onclick="PF('wgv-gerenciadorPrioridadeDialogEdit').hide()"
+                             class="ui-button-secondary"
+                             type="button" />
+        </f:facet>
+    </p:dialog>
+    
+    		<!-- Confirmação de exclusão multi select prioridades -->
+        <p:confirmDialog global="true" showEffect="fade" width="300">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                icon="pi pi-times" />
+        </p:confirmDialog>
+        
+			<!-- Confirmação de exclusão do botão da linha da tabela -->
+			<p:confirmDialog widgetVar="deletePrioridadeDialog"  showEffect="fade" width="300" message="Excluir esta prioridade?" header="Confirmação" severity="warn">
+				<p:commandButton value="Sim" icon="pi pi-check" actionListener="#{prioridadeBean.excluirPrioridade}" process="@this" update=":form-prioridades:g-mensagem :form-prioridades:dt-tab-prioridade" oncomplete="PF('deletePrioridadeDialog').hide()" />
+				<p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deletePrioridadeDialog').hide()" />
+			</p:confirmDialog>
+
+</ui:composition>

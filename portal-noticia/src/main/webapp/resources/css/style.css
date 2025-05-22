@@ -16,6 +16,12 @@
 	height: 100vh;
 }
 
+/* Estiliza o placeholder dentro do textEditor */
+.editor-custom-placeholder .ql-editor::before {
+    color: #999999; /* Altere a cor conforme desejado */
+    font-style: italic;
+}
+
 /* Estilo para header fixo utlizado na master page  */
 .div-header {
 	position: fixed;

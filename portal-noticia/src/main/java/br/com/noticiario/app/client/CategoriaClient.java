@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.noticiario.app.dto.CategoriaDTO;
 
-@FeignClient(url = "${api.client.url}", name = "categoriaClient")
+@FeignClient(url = "${api.client.bff.web.url}", name = "categoriaClient")
 public interface CategoriaClient {
 	
 	@GetMapping("/bff-web-categoria/bff-lista")

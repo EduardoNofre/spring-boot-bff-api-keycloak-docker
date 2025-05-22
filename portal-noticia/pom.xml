@@ -69,6 +69,13 @@
 			<version>${joinfaces.version}</version>
 		</dependency>
 
+		<!-- PrimeFaces Editor de texto-->
+		<dependency>
+			<groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+			<artifactId>owasp-java-html-sanitizer</artifactId>
+			<version>20211018.1</version>
+		</dependency>
+
 		<!-- JSF Bean Management (CDI) -->
 		<dependency>
 			<groupId>jakarta.enterprise</groupId>

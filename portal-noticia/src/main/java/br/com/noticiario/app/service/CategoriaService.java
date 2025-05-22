@@ -19,10 +19,13 @@ public class CategoriaService {
 
 	public List<CategoriaDTO> categorias() throws HandleException {
 
+		List<CategoriaDTO> nenhumaCategoriaEncontrada = null;
 		ResponseEntity<List<CategoriaDTO>> response = categoriaClient.listaCategoria();
 
-		// TO DO DIALOG
-		Util.validarResponse204(response.getStatusCode().value());
+		if (response.getStatusCode().value() == 204) {
+
+			return nenhumaCategoriaEncontrada;
+		}
 
 		return response.getBody();
 	}
@@ -49,10 +52,9 @@ public class CategoriaService {
 
 		categoriaClient.excluirCategoria(categoriaDTO);
 	}
-	
-	
+
 	public boolean validarCampos() {
-		
+
 		return false;
 	}
 }

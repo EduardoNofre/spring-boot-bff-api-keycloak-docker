@@ -1,0 +1,32 @@
+<!-- src/main/webapp/includes/toolbar-prioridade.xhtml -->
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:toolbar>
+		<p:toolbarGroup>
+			<p:commandButton value="Nova Prioridade" icon="pi pi-plus"
+				actionListener="#{prioridadeBean.inserirNovaPrioridade}"
+				update=":form-dialog-edit-cad:manage-prioridade-content"
+				oncomplete="PF('gerenciadoPrioridadeDialog').show()"
+				styleClass="ui-button-success" style="margin-right: .5rem">
+				<p:resetInput
+					target=":form-dialog-edit-cad:manage-prioridade-content" />
+			</p:commandButton>
+
+			<p:commandButton id="delete-prioridades-button"
+				value="#{prioridadeBean.deleteButtonMessage}" icon="pi pi-trash"
+				actionListener="#{prioridadeBean.excluirPrioridades}"
+				styleClass="ui-button-danger"
+				disabled="#{!prioridadeBean.temPrioridadeSelecionada()}"
+				update="@this">
+				<p:confirm header="Confirmação"
+					message="Deseja excluir as prioridade selecionadas?"
+					icon="pi pi-exclamation-triangle" />
+			</p:commandButton>
+		</p:toolbarGroup>
+	</p:toolbar>
+</ui:composition>

@@ -1,0 +1,70 @@
+
+<!-- src/main/webapp/includes/datatable-subCategoria.xhtml -->
+<!--  - Fragmento tabela subCategoria -->
+<!--  - Aqui é a tabela subCategoria  -->
+<!--  - Na tabela temos os botoes nova subCategoria subCategoria, excluir em grupo de subCategoria, editar subCategoria, exlcuir subCategoria -->
+<!--  - Check box para seleciona um ou mais registros -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<p:dataTable id="dt-tab-subCategoria" widgetVar="wgv-subCategorias" var="subCategoria" value="#{subCategoriaBean.listarSubCategorias()}"
+		reflow="true" styleClass="subCategoria-table"
+		selection="#{subCategoriaBean.subCategoriasSelecionadas}"
+		rowKey="#{subCategoria.id}" paginator="true" rows="8"
+		selectionRowMode="add" paginatorPosition="bottom"
+		emptyMessage="Nenhuma sub Categoria encontrada.">
+
+		<p:ajax event="rowSelect"
+			update=":form-subCategorias:delete-subCategorias-button" />
+		<p:ajax event="rowUnselect"
+			update=":form-subCategorias:delete-subCategorias-button" />
+		<p:ajax event="rowSelectCheckbox"
+			update=":form-subCategorias:delete-subCategorias-button" />
+		<p:ajax event="rowUnselectCheckbox"
+			update=":form-subCategorias:delete-subCategorias-button" />
+		<p:ajax event="toggleSelect"
+			update=":form-subCategorias:delete-subCategorias-button" />
+
+		<p:column selectionMode="multiple" exportable="false" />
+
+		<p:column headerText="Id">
+			<h:outputText value="#{subCategoria.id}" />
+		</p:column>
+
+		<p:column headerText="SubCategoria">
+			<h:outputText value="#{subCategoria.subCategoria}" />
+		</p:column>
+
+		<p:column headerText="Descrição">
+			<h:outputText value="#{subCategoria.categoriaId}" />
+		</p:column>
+
+		<p:column headerText="Criado em">
+			<h:outputText value="#{subCategoria.criadoEm}">
+			</h:outputText>
+		</p:column>
+
+		<p:column exportable="false" headerText="Ações">
+			<p:commandButton icon="pi pi-pencil"
+				update=":form-dialog-edit-cad:gerenciador-subCategoria-content-edit"
+				oncomplete="PF('wgv-gerenciadorSubCategoriaDialogEdit').show()"
+				styleClass="edit-button rounded-button ui-button-success"
+				process="@this">
+				<f:setPropertyActionListener value="#{subCategoria}"
+					target="#{subCategoriaBean.subCategoriaSelecionada}" />
+				<p:resetInput
+					target=":form-dialog-edit-cad:gerenciador-subCategoria-content-edit" />
+			</p:commandButton>
+			
+			<p:commandButton class="ui-button-warning rounded-button"
+				icon="pi pi-trash" process="@this"
+				oncomplete="PF('deleteSubCategoriaDialog').show()">
+				<f:setPropertyActionListener value="#{subCategoria}"
+					target="#{subCategoriaBean.subCategoriaSelecionada}" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+</ui:composition>
