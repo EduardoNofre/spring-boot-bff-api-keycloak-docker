@@ -5,9 +5,8 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-	<div class="card">
-		<p:tabView dynamic="true" cache="true">
-			<p:tab title="Cadastro de noticia">
+
+			<p:tab title="Cadastro de notícias">
 					<h:panelGrid columns="1" cellpadding="7" styleClass="mb-3">
 						<p:outputLabel for="noticia" value="Noticia" />
 						<p:inputText id="noticia" style="width:600px;"
@@ -57,7 +56,4 @@
 					<p:commandButton value="Save" update="@form"
 						action="#{noticiaBean.save}" icon="pi pi-check" />
 			</p:tab>
-		</p:tabView>
-	</div>
-
 </ui:composition>

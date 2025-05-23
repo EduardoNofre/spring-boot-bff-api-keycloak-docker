@@ -8,20 +8,12 @@
 	<div  style="width: 250px; background-color: #f4f4f4; padding: 10px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
 		<h:form id="menu-lateral" style="width: 300px; padding: 75px; margin-top: 0px; padding-left: 9px; ">
 			<p:panelMenu  style="width: 100%;">
-				<p:submenu label="Opções">
-					<p:menuitem value="Salvar" icon="pi pi-save"
-						action="#{menuView.save}" ajax="false" />
-					<p:menuitem value="Atualizar" icon="pi pi-refresh"
-						action="#{menuView.update}" />
-					<p:menuitem value="Excluir" icon="pi pi-times"
-						action="#{menuView.delete}" />
-				</p:submenu>
 				<p:submenu label="Navegação">
-					<p:menuitem value="Categoria" outcome="/pages/categoria"  icon="pi pi-upload" />
-					<p:menuitem value="Sub Categoria" outcome="/pages/sub-categoria"  icon="pi pi-upload" />
-					<p:menuitem value="Prioridade" outcome="/pages/prioridade" icon="pi pi-upload" />
-					<p:menuitem value="Noticia" outcome="/pages/noticia" icon="pi pi-upload" />
-					<p:menuitem value="Template" outcome="/template/template" icon="pi pi-upload" />
+					<p:menuitem value="Categoria" outcome="/pages/categoria"  icon="pi pi-angle-double-right" />
+					<p:menuitem value="Sub Categoria" outcome="/pages/sub-categoria"  icon="pi pi-angle-double-right" />
+					<p:menuitem value="Prioridade" outcome="/pages/prioridade" icon="pi pi-angle-double-right" />
+					<p:menuitem value="Noticia" outcome="/pages/noticia" icon="pi pi-angle-double-right" />
+					<p:menuitem value="Template" outcome="/template/template" icon="pi pi-angle-double-right" />
 				</p:submenu>
 			</p:panelMenu>
 		</h:form>
