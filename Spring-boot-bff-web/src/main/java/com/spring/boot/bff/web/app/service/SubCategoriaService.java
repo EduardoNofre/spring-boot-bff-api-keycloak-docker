@@ -1,5 +1,6 @@
 package com.spring.boot.bff.web.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,20 @@ public class SubCategoriaService {
 		ResponseEntity<List<SubCategoriaDTO>> response = subCategoriaClient.subCategoriaListar();
 
 		Util.validarResponse204(response.getStatusCode().value());
+
+		return response.getBody();
+	}
+
+	public List<SubCategoriaDTO> subCategoriaListarCategoria(Integer idCategoriaFk) throws HandleException {
+
+		ResponseEntity<List<SubCategoriaDTO>> response = subCategoriaClient.subCategoriaListarCategoria(idCategoriaFk);
+
+		if (response.getStatusCode().value() == 204) {
+			List<SubCategoriaDTO> listaVazia = new ArrayList<>();
+
+			return listaVazia;
+
+		}
 
 		return response.getBody();
 	}

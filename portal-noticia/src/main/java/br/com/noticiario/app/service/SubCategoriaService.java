@@ -17,7 +17,7 @@ public class SubCategoriaService {
 
 	private SubCategoriaClient subCategoriaClient;
 
-	public List<SubCategoriaDTO> subCategoriaListar() throws HandleException {
+	public List<SubCategoriaDTO> subCategoriaListar() {
 
 		List<SubCategoriaDTO> nenhumaSubCategoriaEncontrada = null;
 		ResponseEntity<List<SubCategoriaDTO>> response = subCategoriaClient.subCategoriaListar();
@@ -25,6 +25,18 @@ public class SubCategoriaService {
 		if (response.getStatusCode().value() == 204) {
 
 			return nenhumaSubCategoriaEncontrada;
+		}
+
+		return response.getBody();
+	}
+
+	public List<SubCategoriaDTO> subCategoriaListarCategoria(Integer categoriaId) {
+
+		ResponseEntity<List<SubCategoriaDTO>> response = subCategoriaClient.subCategoriaListarCategoria(categoriaId);
+
+		if (response.getStatusCode().value() == 204) {
+			List<SubCategoriaDTO> nenhumaSubCategoriaEncontradaParaCategoria = null;
+			return nenhumaSubCategoriaEncontradaParaCategoria;
 		}
 
 		return response.getBody();

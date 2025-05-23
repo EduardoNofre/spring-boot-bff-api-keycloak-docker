@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.noticiario.app.dto.SubCategoriaDTO;
 import br.com.noticiario.app.handle.HandleException;
+import jakarta.validation.Valid;
 
 @FeignClient(url = "${api.client.bff.web.url}", name = "subCategoriaClient")
 public interface SubCategoriaClient {
 
 	@GetMapping(value = "/bff-web-sub-categoria")
-	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListar() throws HandleException;
+	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListar() ;
+	
+	@GetMapping(value = "/bff-web-sub-categoria/categoria")
+	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListarCategoria(@RequestParam Integer categoriaId) ;
 
 	@PostMapping(value = "/bff-web-sub-categoria")
 	public ResponseEntity<SubCategoriaDTO> subCategoriaInserir(
@@ -26,10 +30,10 @@ public interface SubCategoriaClient {
 			@RequestParam Integer categoriaId);
 
 	@DeleteMapping(value = "/bff-web-sub-categoria")
-	public void subCategoriaExcluir(@RequestBody SubCategoriaDTO subCategoriaDTO);
+	public void subCategoriaExcluir(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO);
 
 	@PutMapping(value = "/bff-web-sub-categoria")
-	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(@RequestBody SubCategoriaDTO subCategoriaDTO)
-			throws HandleException;
+	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO)
+			;
 
 }

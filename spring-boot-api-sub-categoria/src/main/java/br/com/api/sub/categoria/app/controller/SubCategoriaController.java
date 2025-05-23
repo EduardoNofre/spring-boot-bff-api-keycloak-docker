@@ -1,4 +1,4 @@
-package com.spring.boot.bff.web.app.controller;
+package br.com.api.sub.categoria.app.controller;
 
 import java.util.List;
 
@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.bff.web.app.dto.SubCategoriaDTO;
-import com.spring.boot.bff.web.app.handle.HandleException;
-import com.spring.boot.bff.web.app.service.SubCategoriaService;
-
+import br.com.api.sub.categoria.app.dto.SubCategoriaDTO;
+import br.com.api.sub.categoria.app.handle.HandleException;
+import br.com.api.sub.categoria.app.service.SubCategoriaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -29,15 +28,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/bff-web-sub-categoria")
-@Tag(name = "SubCategoria", description = "Recurso bff sub categoria controller BFF")
+@RequestMapping("/sub-categoria")
+@Tag(name = "SubCategoria", description = "Recurso Sub Sub Categoria controller Api")
 public class SubCategoriaController {
-
 
 	@Autowired
 	private SubCategoriaService subCategoriaService;
-
-
 
 	@Operation(summary = "Retorna uma Sub Categoria", description = "Retorna uma Sub Categoria")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
@@ -50,12 +46,11 @@ public class SubCategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@GetMapping()
-	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListar() throws HandleException{
+	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListar() throws HandleException {
 
 		return ResponseEntity.status(HttpStatus.OK).body(subCategoriaService.subCategoriaListar());
-
 	}
-	
+
 	
 	@Operation(summary = "Retorna uma lista de Sub Categoria atrelada a uma categoria", description = "Retorna uma Sub Categoria")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso", content = {
@@ -74,6 +69,8 @@ public class SubCategoriaController {
 		return ResponseEntity.status(HttpStatus.OK).body(subCategoriaService.subCategoriaListarCategoria(categoriaId));
 	}
 	
+	
+	
 	@Operation(summary = "Inserir novas Sub Categoria", description = "Inserir novas Sub Categoria")
 	@ApiResponses(value = { @ApiResponse(responseCode = "201", description = "Criado", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = SubCategoriaDTO.class)) }),
@@ -85,8 +82,9 @@ public class SubCategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PostMapping()
-	public ResponseEntity<SubCategoriaDTO> subCategoriaInserir(String subCategoria, Integer categoriaId) throws HandleException{
-
+	public ResponseEntity<SubCategoriaDTO> subCategoriaInserir(
+			@Parameter(name = "subCategoria", description = "sub categoria nome", example = "Jiu Jitsu") @RequestParam(required = true) String subCategoria,
+			@Parameter(name = "categoriaId", description = "Identificador da categoria fk ", example = "123") @RequestParam(required = true) Integer categoriaId) {
 
 		return ResponseEntity.status(HttpStatus.OK).body(subCategoriaService.subCategoriaInserir(subCategoria,categoriaId));
 	}
@@ -106,7 +104,6 @@ public class SubCategoriaController {
 		subCategoriaService.subCategoriaExcluir(subCategoriaDTO);
 
 		return ResponseEntity.ok().build();
-
 	}
 
 	@Operation(summary = "Atualizar Sub Categoria existentes", description = "Atualizar Sub Categoria existentes")
@@ -119,8 +116,9 @@ public class SubCategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PutMapping()
-	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO) throws HandleException{
+	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO) throws HandleException {
 
 		return ResponseEntity.status(HttpStatus.OK).body(subCategoriaService.SubCategoriaAtualizar(subCategoriaDTO));
 	}
+
 }

@@ -19,6 +19,9 @@ public interface SubCategoriaClient {
 
 	@GetMapping(value = "/sub-categoria")
 	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListar() throws HandleException;
+	
+	@GetMapping(value = "/sub-categoria/categoria")
+	public ResponseEntity<List<SubCategoriaDTO>> subCategoriaListarCategoria(@RequestParam Integer categoriaId) throws HandleException;
 
 	@PostMapping(value = "/sub-categoria")
 	public ResponseEntity<SubCategoriaDTO> subCategoriaInserir(

@@ -30,17 +30,19 @@ public class NoticiaBean {
 
 	@Autowired
 	private SubCategoriaService subCategoriaService;
+	
+	private List<SubCategoriaDTO> subCategorias;
 
 	@Autowired
 	private PrioridadeService prioridadeService;
 
 	private NoticiaDTO noticiaDTO;
 
-	private String selectOneListCategoria;
+	private Integer categoriaId;
 
-	private String selectOneListSubCategoria;
+	private Integer subCategoriaId;
 
-	private String selectOneListPrioridade;
+	private Integer prioridadeId;
 
 	/**
 	 * SelectOneMenu Categorias
@@ -73,5 +75,19 @@ public class NoticiaBean {
 	public List<PrioridadeDTO> listarPrioridade() throws HandleException {
 
 		return prioridadeService.prioridades();
+	}
+
+	/**
+	 * SelectOneMenu SubCategoria
+	 * 
+	 * Esse metodo depende do resulatdo da categoria selecionada no SelectOneMenu Categoria
+	 * 
+	 * @return
+	 * @throws HandleException
+	 */
+	public void onSubCategoriaChange() {
+
+		subCategorias = subCategoriaService.subCategoriaListarCategoria(categoriaId);
+
 	}
 }
