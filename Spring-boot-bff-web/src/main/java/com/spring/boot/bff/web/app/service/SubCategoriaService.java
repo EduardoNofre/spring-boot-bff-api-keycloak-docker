@@ -2,9 +2,9 @@ package com.spring.boot.bff.web.app.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.spring.boot.bff.web.app.client.SubCategoriaClient;
 import com.spring.boot.bff.web.app.dto.SubCategoriaDTO;
@@ -17,9 +17,9 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class SubCategoriaService {
 
+	@Autowired
 	private SubCategoriaClient subCategoriaClient;
 
-	@GetMapping(value = "/sub-categoria")
 	public List<SubCategoriaDTO> subCategoriaListar() throws HandleException {
 
 		ResponseEntity<List<SubCategoriaDTO>> response = subCategoriaClient.subCategoriaListar();

@@ -17,7 +17,7 @@ import com.spring.boot.bff.web.app.dto.PrioridadeDTO;
 public interface PrioridadeClient {
 
 	@GetMapping("/prioridade/id")
-	public ResponseEntity<PrioridadeDTO> buscarId(@RequestParam("id") Integer id);
+	public ResponseEntity<PrioridadeDTO> buscarId(@RequestParam Integer id);
 
 	@GetMapping("/prioridade/listar")
 	public ResponseEntity<List<PrioridadeDTO>> listar();

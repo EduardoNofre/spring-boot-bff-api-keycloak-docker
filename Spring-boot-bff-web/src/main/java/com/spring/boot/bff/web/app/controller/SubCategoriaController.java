@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/bff-web-sub-categoria")
@@ -78,7 +80,7 @@ public class SubCategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@DeleteMapping()
-	public ResponseEntity<Void> subCategoriaExcluir(SubCategoriaDTO subCategoriaDTO) {
+	public ResponseEntity<Void> subCategoriaExcluir(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO) {
 
 		subCategoriaService.subCategoriaExcluir(subCategoriaDTO);
 
@@ -96,7 +98,7 @@ public class SubCategoriaController {
 			@ApiResponse(responseCode = "500", description = "Interno sem causa mapeada.", content = @Content),
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@PutMapping()
-	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(SubCategoriaDTO subCategoriaDTO) throws HandleException{
+	public ResponseEntity<SubCategoriaDTO> subCategoriaAtualizar(@Valid @RequestBody SubCategoriaDTO subCategoriaDTO) throws HandleException{
 
 		return ResponseEntity.status(HttpStatus.OK).body(subCategoriaService.SubCategoriaAtualizar(subCategoriaDTO));
 	}
