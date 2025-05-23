@@ -6,8 +6,10 @@ import java.util.List;
 import org.primefaces.PrimeFaces;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.com.noticiario.app.dto.CategoriaDTO;
 import br.com.noticiario.app.dto.SubCategoriaDTO;
 import br.com.noticiario.app.handle.HandleException;
+import br.com.noticiario.app.service.CategoriaService;
 import br.com.noticiario.app.service.SubCategoriaService;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -22,26 +24,41 @@ public class SubCategoriaBean {
 
 	@Autowired
 	private SubCategoriaService subCategoriaService;
+	
+	@Autowired
+	private CategoriaService categoriaService;
 
 	private SubCategoriaDTO subCategoriaSelecionada;
 
 	private SubCategoriaDTO dto;
 
 	private List<SubCategoriaDTO> subCategoriasSelecionadas;
+	
+	private Integer selectOneListCategoriaId;
 
 	public List<SubCategoriaDTO> listarSubCategorias() throws HandleException {
 
 		return subCategoriaService.subCategoriaListar();
 	}
+	
+	/**
+	 * SelectOneMenu Categorias
+	 * 
+	 * @return
+	 * @throws HandleException
+	 */
+	public List<CategoriaDTO> listarCategorias() throws HandleException {
+
+		return categoriaService.categorias();
+	}
 
 	public void salvarSubCategoria() throws HandleException {
 
 		if (this.dto.getId() == null) {
-			this.dto.setId(null);
-			this.dto.setCriadoEm(LocalDateTime.now());
-			subCategoriaService.subCategoriaInserir(null, null);
+			this.dto.setCategoriaId(selectOneListCategoriaId);
+			subCategoriaService.subCategoriaInserir(dto.getSubCategoria(), selectOneListCategoriaId);
 		}
-		PrimeFaces.current().executeScript("PF('gerenciadoPrioridadeDialog').hide()");
+		PrimeFaces.current().executeScript("PF('gerenciadoSubCategoriaDialog').hide()");
 		PrimeFaces.current().ajax().update("form-subCategorias:g-mensagem", "form-subCategorias:dt-tab-subCategoria");
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastro", "SubCategoria cadastrada!"));
 	}
@@ -52,7 +69,7 @@ public class SubCategoriaBean {
 			this.subCategoriaSelecionada.setCriadoEm(LocalDateTime.now());
 			subCategoriaService.subCategoriaAtualizar(subCategoriaSelecionada);
 		}
-		PrimeFaces.current().executeScript("PF('wgv-gerenciadorPrioridadeDialogEdit').hide()");
+		PrimeFaces.current().executeScript("PF('wgv-gerenciadorSubCategoriaDialogEdit').hide()");
 		PrimeFaces.current().ajax().update("form-subCategorias:g-mensagem", "form-subCategorias:dt-tab-subCategoria");
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Edição", "SubCategoria editada!"));
 
@@ -72,7 +89,7 @@ public class SubCategoriaBean {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Remoção","A sub Categoria foi removida com sucesso"));
 		}
 		this.subCategoriasSelecionadas = null;
-		PrimeFaces.current().ajax().update("form-categorias:g-mensagem", "form-categorias:dt-tab-subCategoria");
+		PrimeFaces.current().ajax().update("form-subCategorias:g-mensagem", "form-subCategorias:dt-tab-subCategoria");
 		PrimeFaces.current().executeScript("PF('dt-tab-categoria').clearFilters()");
 	}
 	

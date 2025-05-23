@@ -5,14 +5,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-	<div class="card">
+	<div class="card" >
 		<p:tabView dynamic="true" cache="true">
-			<f:facet name="actions">
-                Global actions
-            </f:facet>
 			<p:tab title="Cadastro de noticia">
 				<h:form id="aba-cad-noticia">
-
 					<h:panelGrid columns="1" cellpadding="7" styleClass="mb-3">
 						<p:outputLabel for="noticia" value="Noticia" />
 						<p:inputText id="noticia" style="width:600px;"
