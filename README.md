@@ -11,15 +11,16 @@
    O que será usado aqui neste estudo.
 </h1>
 
-1 - Ide eclipse sts.<br>
-2 - Java 17.<br>
-3 - banco de dados postgres-sql.<br>
-4 - lombok.<br>
-5 - Spring boot 3.4.5.<br>
-6 - Docker <br>
-7 - Docker Compose.<br>
-8 - Keycloak.<br>
-9 - OpenFeing.<br>
+01 - Ide eclipse sts.<br>
+02 - Java 17.<br>
+03 - banco de dados postgres-sql.<br>
+04 - lombok.<br>
+05 - Spring boot 3.4.5.<br>
+06 - Docker <br>
+07 - Docker Compose.<br>
+08 - Keycloak.<br>
+09 - OpenFeing.<br>
+10 - config server.<br>
 
 <h1 align="center">
    Modelo da arquiteura que iremos construir
