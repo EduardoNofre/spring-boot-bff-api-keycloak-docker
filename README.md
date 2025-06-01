@@ -20,8 +20,9 @@
 07 - Docker Compose.<br>
 08 - Keycloak.<br>
 09 - OpenFeing.<br>
-10 - Repositorio config server. 👉 [Link do repositorio config serve](https://github.com/EduardoNofre/config-server-portal-noticias)<br>
-10 - config server. 
+10 - Config server.<br>
+11 - Repositorio config server. 👉 [Link do repositorio config serve](https://github.com/EduardoNofre/config-server-portal-noticias)<br>
+
 
 <h1 align="center">
    Modelo da arquiteura que iremos construir
