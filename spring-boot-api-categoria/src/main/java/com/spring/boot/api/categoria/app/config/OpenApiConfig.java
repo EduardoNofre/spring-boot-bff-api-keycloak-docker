@@ -14,7 +14,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API CATEGORIA")
+                        .title("API SISTEMA BACKEND CATEGORIA")
                         .version("1.0.0")
                         .description("Para gerenciamento backend.")
                         .termsOfService("https://nofrereis.com/termos")

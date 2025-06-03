@@ -14,7 +14,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API BFF WEB")
+                        .title("API SISTEMA (BFF) BACK-END FOR FRONT-END WEB")
                         .version("1.0.0")
                         .description("Para gerenciamento back-End for front-End Web.")
                         .termsOfService("https://nofrereis.com/termos")

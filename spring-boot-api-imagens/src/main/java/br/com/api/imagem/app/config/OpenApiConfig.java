@@ -14,7 +14,7 @@ public class OpenApiConfig {
     OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API IMAGEM")
+                        .title("API SISTEMA BACKEND IMAGEM")
                         .version("1.0.0")
                         .description("Para gerenciamento back-End for front-End Web.")
                         .termsOfService("https://nofrereis.com/termos")
