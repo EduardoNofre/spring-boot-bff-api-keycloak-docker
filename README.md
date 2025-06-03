@@ -184,8 +184,8 @@ Aqui temos exemplos do config service <br>
 O repositório do Config Server é o local onde ficam armazenados os arquivos de configuração centralizada para múltiplas aplicações em um ambiente com Spring Cloud Config.<br>
 Arquivos properties referente a aplicação.<br>
 Exemplo:<br>
- 1 - api-categoria-dev.properties.<br>
- 2 - api-imagem-dev.properties.<br>
+   1 - api-categoria-dev.properties.<br>
+   2 - api-imagem-dev.properties.<br>
 
 <h1 align="center">
    O que iremos desenvolver aqui para aprendizado.
