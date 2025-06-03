@@ -20,7 +20,7 @@
 		<modelmapper.version>2.3.0</modelmapper.version>
 		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -99,6 +99,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -110,20 +117,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<url />
-	<licenses>
-		<license />
-	</licenses>
-	<developers>
-		<developer />
-	</developers>
-	<scm>
-		<connection />
-		<developerConnection />
-		<tag />
-		<url />
-	</scm>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
