@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.model;
+package com.spring.boot.api.categoria.app.model;
 
 import java.time.LocalDateTime;
 

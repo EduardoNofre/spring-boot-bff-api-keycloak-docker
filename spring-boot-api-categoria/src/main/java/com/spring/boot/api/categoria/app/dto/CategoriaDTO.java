@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.dto;
+package com.spring.boot.api.categoria.app.dto;
 
 import java.time.LocalDateTime;
 

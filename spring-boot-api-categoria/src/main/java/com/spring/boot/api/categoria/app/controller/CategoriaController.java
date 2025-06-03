@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.controller;
+package com.spring.boot.api.categoria.app.controller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.api.app.dto.CategoriaDTO;
-import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.service.CategoriaService;
+import com.spring.boot.api.categoria.app.dto.CategoriaDTO;
+import com.spring.boot.api.categoria.app.handle.HandleException;
+import com.spring.boot.api.categoria.app.service.CategoriaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
