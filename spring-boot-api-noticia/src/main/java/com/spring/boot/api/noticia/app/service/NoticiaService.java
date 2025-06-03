@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.service;
+package com.spring.boot.api.noticia.app.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.spring.boot.api.app.dto.NoticiaDTO;
-import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.model.Noticia;
-import com.spring.boot.api.app.repository.CategoriaRepository;
-import com.spring.boot.api.app.repository.NoticiaRepository;
+import com.spring.boot.api.noticia.app.dto.NoticiaDTO;
+import com.spring.boot.api.noticia.app.handle.HandleException;
+import com.spring.boot.api.noticia.app.model.Noticia;
+import com.spring.boot.api.noticia.app.repository.CategoriaRepository;
+import com.spring.boot.api.noticia.app.repository.NoticiaRepository;
 
 import jakarta.transaction.Transactional;
 

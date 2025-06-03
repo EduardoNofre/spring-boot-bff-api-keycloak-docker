@@ -3,28 +3,36 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
+		<version>3.4.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
-	<groupId>com.spring.boot.api.app</groupId>
-	<artifactId>spring-boot-api-api</artifactId>
-	<version>0.0.1</version>
-	<name>spring-boot-api-backend</name>
-	<description>services categoria, Noticias e Prioridade</description>
-
+	<groupId>com.spring.boot.api.noticia.app</groupId>
+	<artifactId>spring-boot-api-noticia</artifactId>
+	<version>1.0.0</version>
+	<name>spring-boot-api-noticia</name>
+	<description>noticias em geral</description>
+	<url />
+	<licenses>
+		<license />
+	</licenses>
+	<developers>
+		<developer />
+	</developers>
+	<scm>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
+	</scm>
 	<properties>
-		<java.version>17</java.version>
 		<modelmapper.version>2.3.0</modelmapper.version>
-		<joinfaces.version>5.0.0</joinfaces.version>
+		<java.version>17</java.version>
 		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
-
 		<!-- SPRING BOOT BOOT -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,37 +98,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -132,4 +110,14 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

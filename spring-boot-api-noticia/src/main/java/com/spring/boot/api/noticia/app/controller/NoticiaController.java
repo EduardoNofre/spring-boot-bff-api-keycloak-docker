@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.controller;
+package com.spring.boot.api.noticia.app.controller;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.api.app.dto.NoticiaDTO;
-import com.spring.boot.api.app.handle.HandleException;
-import com.spring.boot.api.app.service.NoticiaService;
+import com.spring.boot.api.noticia.app.dto.NoticiaDTO;
+import com.spring.boot.api.noticia.app.handle.HandleException;
+import com.spring.boot.api.noticia.app.service.NoticiaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

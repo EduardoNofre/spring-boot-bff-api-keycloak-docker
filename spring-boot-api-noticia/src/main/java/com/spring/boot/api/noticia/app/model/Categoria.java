@@ -1,8 +1,7 @@
-package com.spring.boot.api.app.model;
+package com.spring.boot.api.noticia.app.model;
 
 import java.time.LocalDateTime;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,32 +12,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "noticia")
-public class Noticia {
+@Table(name = "categoria")
+public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "noticias")
-	private String noticias;
+	@Column(name = "categoria ")
+	private String categoria;
 
-	@Column(name = "noticias_desc")
-	private String noticiasDesc;
+	@Column(name = "categoria_desc ")
+	private String categoriaDesc;
 
 	@Column(name = "data_hr_alteracao")
 	private LocalDateTime dataHrAlteracao;
 
 	@Column(name = "criado_em")
 	private LocalDateTime criadoEm;
-	
-	@Column(name = "prioridade_id")
-	private Integer prioridadeId;
-	
-	@Schema(name = "usuario_acao")
-	private String usuarioAcao;
-	
-	@Column(name = "categoria_id")
-	private Integer categoriaId;
-
 }

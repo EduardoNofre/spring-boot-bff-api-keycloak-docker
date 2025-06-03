@@ -1,4 +1,4 @@
-package com.spring.boot.api.app.dto;
+package com.spring.boot.api.noticia.app.dto;
 
 import java.time.LocalDateTime;
 
