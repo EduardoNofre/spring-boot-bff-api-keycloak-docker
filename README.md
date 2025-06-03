@@ -146,8 +146,8 @@ Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os des
 Se você está trabalhando em um projeto que precisa consumir APIs RESTful, o OpenFeign pode ser uma excelente opção para simplificar o código e reduzir a complexidade.
 
 ## Exemplo do OpenFeign no link abaixo?
-[Aqui temos exemplos do OpenFeing] <br>
-👉 (https://github.com/EduardoNofre/OpenFeign_And_RestTemplate)<br>
+Aqui temos exemplos do OpenFeing <br>
+👉 (https://github.com/EduardoNofre/OpenFeign_And_RestTemplate) <br>
 
 
 <h1 align="center">
