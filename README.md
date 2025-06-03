@@ -168,11 +168,24 @@ Um HealthCheckDB foi criado para verificar se o Banco de dados está funcionando
    Config server
 </h1>
 
+## O que é Spring Cloud Config Server?
+O Spring Cloud Config Server é usado para fornecer suporte do lado do servidor e do lado do cliente para configuração externa em um sistema distribuído. 
+Então, quando você tem vários microsserviços e deseja controlar facilmente a configuração de todos eles de uma só vez - você estará olhando principalmente para o Spring Cloud Config Server.
+
+## Exemplo do config service no link abaixo?
+Aqui temos exemplos do config service <br>
+(https://github.com/EduardoNofre/digital-config-service)<BR>
 
 <h1 align="center">
    Repositorio config server.
 </h1>
 
+## O que é Repositorio config server?
+O repositório do Config Server é o local onde ficam armazenados os arquivos de configuração centralizada para múltiplas aplicações em um ambiente com Spring Cloud Config.
+Arquivos properties referente a aplicação.
+Exemplo:
+ 1 - api-categoria-dev.properties.<br>
+ 2 - api-imagem-dev.properties.<br>
 
 <h1 align="center">
    O que iremos desenvolver aqui para aprendizado.
