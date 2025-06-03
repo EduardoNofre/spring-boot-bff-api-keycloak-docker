@@ -141,6 +141,14 @@ Ter login único (SSO) entre vários sistemas<br>
    OpenFeing
 </h1>
 
+## O que Spring OpenFeign?
+Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os desenvolvedores escrevam código de maneira mais declarativa e simplifica a comunicação com serviços externos em Java. 
+Se você está trabalhando em um projeto que precisa consumir APIs RESTful, o OpenFeign pode ser uma excelente opção para simplificar o código e reduzir a complexidade.
+
+## Exemplo do OpenFeign no link abaixo?
+Repositorio config server. 👉 [Aqui temos exemplos do OpenFeing] (https://github.com/EduardoNofre/OpenFeign_And_RestTemplate)<br>
+
+
 <h1 align="center">
    HealthCheck
 </h1>
