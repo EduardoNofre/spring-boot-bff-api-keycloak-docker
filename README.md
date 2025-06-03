@@ -145,7 +145,7 @@ Ter login único (SSO) entre vários sistemas<br>
 Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os desenvolvedores escrevam código de maneira mais declarativa e simplifica a comunicação com serviços externos em Java. 
 Se você está trabalhando em um projeto que precisa consumir APIs RESTful, o OpenFeign pode ser uma excelente opção para simplificar o código e reduzir a complexidade.
 
-## Exemplo do OpenFeign no link abaixo?
+## Exemplo do OpenFeign no link abaixo.
 Aqui temos exemplos do OpenFeing <br>
 👉 (https://github.com/EduardoNofre/OpenFeign_And_RestTemplate) <br>
 
@@ -172,7 +172,7 @@ Um HealthCheckDB foi criado para verificar se o Banco de dados está funcionando
 O Spring Cloud Config Server é usado para fornecer suporte do lado do servidor e do lado do cliente para configuração externa em um sistema distribuído. 
 Então, quando você tem vários microsserviços e deseja controlar facilmente a configuração de todos eles de uma só vez - você estará olhando principalmente para o Spring Cloud Config Server.
 
-## Exemplo do config service no link abaixo?
+## Exemplo do config service no link abaixo.
 Aqui temos exemplos do config service <br>
 (https://github.com/EduardoNofre/digital-config-service)<BR>
 
