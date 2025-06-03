@@ -48,7 +48,7 @@ public class CategoriaController {
 			@ApiResponse(responseCode = "504", description = "Gateway Time-Out", content = @Content) })
 	@GetMapping("/id")
 	public ResponseEntity<CategoriaDTO> listaCategoria(
-			@Parameter(name = "id", description = "Número identificador da categoria", example = "123") @RequestParam(name = "id", required = true) Integer id)
+			@Parameter(name = "id", description = "Número identificador da categoria", example = "123") @RequestParam Integer id)
 			throws HandleException {
 
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarId(id));

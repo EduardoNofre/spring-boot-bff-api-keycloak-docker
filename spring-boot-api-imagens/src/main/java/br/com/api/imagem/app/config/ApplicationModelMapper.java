@@ -20,12 +20,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Configuration
-@ComponentScan("br.com.datasystem.sinistro.api")
+@ComponentScan("br.com.api.imagem.app")
 public class ApplicationModelMapper {
 
   @Bean
   public ModelMapper modelMapper() {
-	log.info("[SINISTRO-MODELO-API] - modelMapper - inicializado");
+	log.info("[MODEL MAPPER] - modelMapper - inicializado");
     final ModelMapper mp = new ModelMapper();
     mp.getConfiguration().setAmbiguityIgnored(true).setDeepCopyEnabled(false)
         .setFullTypeMatchingRequired(true).setMatchingStrategy(MatchingStrategies.STRICT);

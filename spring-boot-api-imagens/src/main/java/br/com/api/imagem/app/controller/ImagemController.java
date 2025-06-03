@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/imagem")
+@RequestMapping("/api-imagem")
 @Tag(name = "imagem", description = "Recurso imagem controller Api")
 public class ImagemController {
 	

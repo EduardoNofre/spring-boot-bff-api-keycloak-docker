@@ -8,7 +8,7 @@ import br.com.api.imagem.app.handle.HandleException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class FileImagem {
+public class FileImagemUtil {
 
 	public static void validarPath(File file) throws HandleException {
 

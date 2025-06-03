@@ -22,7 +22,7 @@ import br.com.api.imagem.app.dto.ImagemResponse;
 import br.com.api.imagem.app.handle.HandleException;
 import br.com.api.imagem.app.model.Imagem;
 import br.com.api.imagem.app.repository.ImagemRepository;
-import br.com.api.imagem.app.util.FileImagem;
+import br.com.api.imagem.app.util.FileImagemUtil;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -44,11 +44,11 @@ public class ImagemService {
 
 		File file = new File(servidor.concat(repositorio));
 
-		FileImagem.validarPath(file);
+		FileImagemUtil.validarPath(file);
 
-		FileImagem.validarArquivo(StringUtils.cleanPath(imagem));
+		FileImagemUtil.validarArquivo(StringUtils.cleanPath(imagem));
 
-		FileImagem.arquivoExiste(servidor.concat(repositorio) + imagem);
+		FileImagemUtil.arquivoExiste(servidor.concat(repositorio) + imagem);
 
 		Path caminhoImagem = Paths.get(servidor.concat(repositorio) + imagem);
 
@@ -66,9 +66,9 @@ public class ImagemService {
 
 		File file = new File(servidorImagem.concat(repositorioImagem));
 
-		FileImagem.validarPath(file);
+		FileImagemUtil.validarPath(file);
 
-		FileImagem.validarArquivo(StringUtils.cleanPath(imagem.getOriginalFilename()));
+		FileImagemUtil.validarArquivo(StringUtils.cleanPath(imagem.getOriginalFilename()));
 
 		Path caminhoImagem = Paths
 				.get(servidorImagem.concat(repositorioImagem) + StringUtils.cleanPath(imagem.getOriginalFilename()));
@@ -98,13 +98,13 @@ public class ImagemService {
 				
 		File file = new File(entity.get().getServidor().concat(entity.get().getRepositorio()));
 
-		FileImagem.validarPath(file);
+		FileImagemUtil.validarPath(file);
 
-		FileImagem.validarArquivo(StringUtils.cleanPath(entity.get().getImagem()));
+		FileImagemUtil.validarArquivo(StringUtils.cleanPath(entity.get().getImagem()));
 
-		FileImagem.arquivoExiste(entity.get().getServidor().concat(entity.get().getRepositorio()) + entity.get().getImagem());
+		FileImagemUtil.arquivoExiste(entity.get().getServidor().concat(entity.get().getRepositorio()) + entity.get().getImagem());
 		
-		FileImagem.arquivoExcluir(entity.get().getServidor().concat(entity.get().getRepositorio()) + entity.get().getImagem());
+		FileImagemUtil.arquivoExcluir(entity.get().getServidor().concat(entity.get().getRepositorio()) + entity.get().getImagem());
 
 		imagemRepository.deleteById(entity.get().getId());		
 	}
