@@ -145,6 +145,15 @@ Ter login único (SSO) entre vários sistemas<br>
    HealthCheck
 </h1>
 
+## O que é HealthCheck?
+Um HealthCheck em Java geralmente é usado para verificar se uma aplicação está funcionando corretamente.
+
+## HealthCheckApi?
+Um HealthCheckApi foi criado para verificar se a Api está funcionando corretamente.
+
+## HealthCheckDB?
+Um HealthCheckDB foi criado para verificar se o Banco de dados está funcionando corretamente.
+
 
 <h1 align="center">
    Config server
