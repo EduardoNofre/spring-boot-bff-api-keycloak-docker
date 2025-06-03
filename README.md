@@ -20,8 +20,9 @@
 07 - Docker Compose.<br>
 08 - Keycloak.<br>
 09 - OpenFeing.<br>
-10 - Config server.<br>
-11 - Repositorio config server. 👉 [Link do repositorio config serve](https://github.com/EduardoNofre/config-server-portal-noticias)<br>
+10 - HealthCheck.<br>
+11 - Config server.<br>
+12 - Repositorio config server. 👉 [Link do repositorio config serve](https://github.com/EduardoNofre/config-server-portal-noticias)<br>
 
 
 <h1 align="center">
