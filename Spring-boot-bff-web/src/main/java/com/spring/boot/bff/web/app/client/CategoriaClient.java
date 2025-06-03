@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.boot.bff.web.app.dto.CategoriaDTO;
 
-@FeignClient(url = "${api.client.api.back.end.url}", name = "categoria")
+@FeignClient(url = "${api.client.api.categoria.url}", name = "categoria")
 public interface CategoriaClient {
 
 	@GetMapping("/categoria/id")

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.boot.bff.web.app.dto.PrioridadeDTO;
 
-@FeignClient(url = "${api.client.api.back.end.url}", name = "prioridade")
+@FeignClient(url = "${api.client.api.sub.prioridade.url}", name = "prioridade")
 public interface PrioridadeClient {
 
 	@GetMapping("/prioridade/id")
