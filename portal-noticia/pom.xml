@@ -104,6 +104,12 @@
 			<version>2.10.1</version>
 		</dependency>
 
+		<!-- NECESSARIO PARA CONFGI SERVER -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
