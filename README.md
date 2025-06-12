@@ -23,9 +23,9 @@
 10 - HealthCheck.<br>
 11 - Config server.<br>
 12 - Repositorio config server. 👉 [Link do repositorio config serve](https://github.com/EduardoNofre/config-server-portal-noticias)<br>
-13 - AWS
-14 - Balance
-15 - Elasticsearch 
+13 - AWS.<br>
+14 - Balance.<br>
+15 - Elasticsearch.<br>
 
 
 <h1 align="center">
